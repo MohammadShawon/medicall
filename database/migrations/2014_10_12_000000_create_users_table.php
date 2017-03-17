@@ -20,8 +20,29 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->string('address');
             $table->integer('phone');
-            $table->date('dateofbirth');
-            $table->boolean('status');
+            $table->date('birthday');
+
+            /**
+             * 0 = not verified
+             * 1 = normal user/patient - verified
+             * 2 = doctor - bdmo not verified
+             * 3 = doctor bdmo verified
+             * 4 = moderator
+             * 5 = admin
+             */
+            $table->integer('status')->default(0);
+
+            /**
+             * Doctor
+             * status == 3
+             */
+            $table->text('availability');
+            $table->integer('available_for');
+            $table->string('hospital');
+            $table->unsignedInteger('bdmo_no');
+            $table->string('speciality');
+
+            $table->boolean('online');
             $table->rememberToken();
             $table->timestamps();
         });
