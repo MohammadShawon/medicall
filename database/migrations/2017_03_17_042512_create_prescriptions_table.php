@@ -17,6 +17,7 @@ class CreatePrescriptionsTable extends Migration
             $table->increments('id');
             $table->integer('doctor_id');
             $table->integer('patient_id');
+            $table->integer('appointment_id');
             $table->text('prescription');
             $table->timestamps();
         });
