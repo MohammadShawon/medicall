@@ -70,7 +70,7 @@
                 </ul>
             </li>
 
-            li class="sub-menu">
+            <li class="sub-menu">
             <a href="javascript:;" class="">
                 <i class="icon_table"></i>
                 <span>About Us</span>
@@ -79,7 +79,7 @@
 
             </li>
 
-            li class="sub-menu">
+            <li class="sub-menu">
             <a href="javascript:;" class="">
                 <i class="icon_table"></i>
                 <span>Terms & Condition</span>
@@ -88,7 +88,7 @@
 
             </li>
 
-            li class="sub-menu">
+            <li class="sub-menu">
             <a href="javascript:;" class="">
                 <i class="icon_table"></i>
                 <span>Logout</span>
