@@ -20,6 +20,10 @@ Route::get('/appointment', function() {
     return view('appointment');
 });
 
+Route::get('/profile', function() {
+    return view('users.profile');
+});
+
 Auth::routes();
 
 //Route::get('/home', 'HomeController@index');
