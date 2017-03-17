@@ -55,6 +55,15 @@
 
             </li>
 
+            <li>
+                <a class="" href="#">
+                    <i class="icon_piechart"></i>
+                    <span>Notifications</span>
+
+                </a>
+
+            </li>
+
             <li class="sub-menu">
                 <a href="javascript:;" class="">
                     <i class="icon_table"></i>
