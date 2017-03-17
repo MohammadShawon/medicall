@@ -46,6 +46,14 @@
                 </a>
 
             </li>
+            <li>
+                <a class="" href="#">
+                    <i class="icon_piechart"></i>
+                    <span>Messages</span>
+
+                </a>
+
+            </li>
 
             <li class="sub-menu">
                 <a href="javascript:;" class="">
