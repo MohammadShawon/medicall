@@ -18,9 +18,12 @@ class CreateUsersTable extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->string('password');
-            $table->string('address');
-            $table->integer('phone');
-            $table->date('birthday');
+            $table->string('address')->nullable();
+            $table->integer('phone')->nullable();
+            $table->date('birthday')->nullable();
+            $table->text('bio')->nullable();
+            $table->string('occupation')->nullable();
+            $table->string('website')->nullable();
 
             /**
              * 0 = not verified
@@ -36,13 +39,13 @@ class CreateUsersTable extends Migration
              * Doctor
              * status == 3
              */
-            $table->text('availability');
-            $table->integer('available_for');
-            $table->string('hospital');
-            $table->unsignedInteger('bdmo_no');
-            $table->string('speciality');
+            $table->text('availability')->nullable();
+            $table->integer('available_for')->nullable();
+            $table->string('hospital')->nullable();
+            $table->unsignedInteger('bdmo_no')->nullable();
+            $table->string('speciality')->nullable();
 
-            $table->boolean('online');
+            $table->boolean('online')->default(0);
             $table->rememberToken();
             $table->timestamps();
         });

@@ -37,6 +37,27 @@
                                 @endif
                             </div>
                         </div>
+                        <div class="form-group">
+                            <label for="date-of-birth" class="col-md-4 control-label">Date Of Birth</label>
+
+                            <div class="col-md-6">
+                                <input id="date-of-birth" type="date" class="form-control" name="dob" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="gender" class="col-md-4 control-label">Gender</label>
+                            <div class="col-md-3">
+                                <label class="radio-inline">
+                                    <input name="gender" id="input-gender-male" value="Male" type="radio" checked />Male
+                                </label>
+                            </div>
+                            <div class="col-md-3">
+                                <label class="radio-inline">
+                                    <input name="gender" id="input-gender-female" value="Female" type="radio" />Female
+                                </label>
+                            </div>
+                        </div>
 
                         <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
                             <label for="password" class="col-md-4 control-label">Password</label>
