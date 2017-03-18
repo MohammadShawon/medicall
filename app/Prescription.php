@@ -7,10 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 class Prescription extends Model
 {
     protected function doctor() {
-        return $this->belongsTo(User::class, 'id', 'doctor_id');
+        return $this->belongsTo(User::class, 'doctor_id', 'id');
     }
     protected function patient() {
-        return $this->belongsTo(Patient::class, 'id', 'user_id');
+        return $this->belongsTo(User::class, 'patient_id', 'id');
     }
     protected function appointment() {
         return $this->belongsTo(Appointment::class);

@@ -11,3 +11,6 @@ Route::get('/appointment', function() {
 Route::get('/profile', function() {
     return view('users.profile');
 });
+
+
+Route::get('test', 'TestController@test');

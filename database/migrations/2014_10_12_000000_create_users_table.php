@@ -35,17 +35,6 @@ class CreateUsersTable extends Migration
              * 5 = admin
              */
             $table->integer('status')->default(0);
-
-            /**
-             * Doctor
-             * status == 3
-             */
-            $table->text('availability')->nullable();
-            $table->integer('available_for')->nullable();
-            $table->string('hospital')->nullable();
-            $table->unsignedInteger('bdmo_no')->nullable();
-            $table->string('speciality')->nullable();
-
             $table->boolean('online')->default(0);
             $table->rememberToken();
             $table->timestamps();

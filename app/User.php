@@ -45,65 +45,50 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-    protected function patients() {
-        return $this->hasMany(Patient::class, 'user_id');
-    }
-
-    protected function scopeUsers($query) {
+    public function scopeUsers($query) {
         return $query->where('status', 0)->orWhere('status', 1);
     }
 
-    protected function scopeVerifiedUsers($query) {
+    public function scopeVerifiedUsers($query) {
         return $query->where('status', 1);
     }
 
-    protected function scopeDoctors($query) {
+    public function scopeDoctors($query) {
         return $query->where('status', 2)->orWhere('status', 3);
     }
 
-    protected function scopeVerifiedDoctors($query) {
+    public function scopeVerifiedDoctors($query) {
         return $query->where('status', 3);
     }
 
-    protected function appointmentsByPatient() {
+    public function appointmentsByPatient() {
         return $this->hasMany(Appointment::class, 'patient_id');
     }
 
-    protected function appointmentsByDoctor() {
+    public function appointmentsByDoctor() {
         return $this->hasMany(Appointment::class, 'doctor_id');
     }
 
-    protected function appointments() {
-        return $this->appointmentsByPatient->merge($this->appointmentsByDoctor);
-    }
-
-    protected function messageFrom() {
+    public function messageFrom() {
         return $this->hasMany(Message::class, 'from_id');
     }
 
-    protected function messageTo() {
+    public function messageTo() {
         return $this->hasMany(Message::class, 'to_id');
     }
 
-    protected function messages() {
-        return $this->messageFrom->merge($this->messageTo);
-    }
-
-    protected function prescriptionBy() {
+    public function prescriptionsByDoctor() {
         return $this->hasMany(Prescription::class, 'doctor_id');
     }
-    protected function prescriptionFor() {
+    public function prescriptionsForPatient() {
         return $this->hasMany(Prescription::class, 'patient_id');
     }
-    protected function prescriptions() {
-        return $this->prescriptionBy->merge($this->prescriptionFor);
-    }
 
-    protected function tags() {
+    public function tags() {
         return $this->hasMany(UserTag::class);
     }
 
-    protected function category() {
+    public function category() {
         return $this->hasOne(UserCategory::class);
     }
 }

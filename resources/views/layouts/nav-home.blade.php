@@ -26,7 +26,18 @@
           <li class="nav-item">
             <a class="nav-link " href="#">FAQ</a>
           </li>
-
+          @if(Auth::check())
+            <li class="nav-item">
+              <form action="/logout" method="post" id="logout">{{ csrf_field() }}<a class="nav-link " onclick="document.getElementById('logout').submit()">Logout</a></form>
+            </li>
+          @else
+            <li class="nav-item">
+              <a class="nav-link " href="/login">Login</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link " href="/register">Register</a>
+            </li>
+          @endif
         </ul>
         
         <form class="form-inline mt-2 mt-md-0">
