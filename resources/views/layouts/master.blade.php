@@ -23,6 +23,7 @@
     <!-- Custom styles for this template -->
     <link href="/css/carousel.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="/css/style.css">
+    @yield('stylesheet')
 
 
   </head>

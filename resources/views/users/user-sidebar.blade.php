@@ -35,6 +35,12 @@
             <li>
                 <a class="" href="#">
                     <i class="icon_genius"></i>
+                    <span>My Appointment</span>
+                </a>
+            </li>
+            <li>
+                <a class="" href="#">
+                    <i class="icon_genius"></i>
                     <span>Prescription</span>
                 </a>
             </li>
@@ -42,6 +48,14 @@
                 <a class="" href="#">
                     <i class="icon_piechart"></i>
                     <span>Ask Your Question</span>
+
+                </a>
+
+            </li>
+            <li>
+                <a class="" href="#">
+                    <i class="icon_piechart"></i>
+                    <span> Answers</span>
 
                 </a>
 

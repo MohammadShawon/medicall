@@ -6,7 +6,7 @@
         <a href="https://qbytesoft.com">Medicall</a> by <a href="https://Qbytesoft.com/">Shawon & Sadi</a>
     </div>
 </div>
-</section>
+
 <!-- container section end -->
 <!-- javascripts -->
 <script src="js/jquery.js"></script>
