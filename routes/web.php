@@ -5,7 +5,7 @@ Route::get('/', 'ViewsController@index');
 Route::get('/appointment', function() {
     return view('appointment');
 });
-Route::group(['middleware'=>['user']], function (){
+Route::group(['middleware'=>['user', 'doctor', 'moderator', 'admin']], function (){
     /**
      * User Routes
      */
