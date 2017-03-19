@@ -16,14 +16,14 @@
                 <div class="profile-widget profile-widget-info">
                     <div class="panel-body">
                         <div class="col-lg-2 col-sm-2">
-                            <h4>Mr. Patient</h4>
+                            <h4> {{ $user->name }} </h4>
                             <div class="follow-ava">
                                 <img src="img/profile-widget-avatar.jpg" alt="">
                             </div>
-                            <h6>Patient</h6>
+                            <h6>{{ $user->role }}</h6>
                         </div>
                         <div class="col-lg-4 col-sm-4 follow-info">
-                            <p>Patient Bio will be shown here</p>
+                            <p>{{ $user->bio }}</p>
                             <p>@mytwwiter</p>
                             <p><i class="fa fa-twitter">My Twwet</i></p>
                             <h6>

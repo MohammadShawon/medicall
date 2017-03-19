@@ -26,14 +26,11 @@ class User extends Authenticatable
         'bio',
         'occupation',
         'website',
-
+        'city',
+        'mail_validation',
+        'photo',
+        'blood_group',
         'status',
-
-        'availability',
-        'available_for',
-        'hospital',
-        'bdmo_no',
-        'speciality',
         'online'
     ];
 
@@ -62,6 +59,29 @@ class User extends Authenticatable
     }
     public function isAdmin() {
         return $this->status==5;
+    }
+    public function getRoleAttribute() {
+        $role = 'User';
+        switch ($this->status){
+            case 1:
+                $role = 'User';
+                break;
+            case 2:
+                $role = 'Doctor (Unverified)';
+                break;
+            case 3:
+                $role = 'Doctor';
+                break;
+            case 4:
+                $role = 'Moderator';
+                break;
+            case 5:
+                $role = 'Admin';
+                break;
+            default:
+                $role = 'Unverified';
+        }
+        return $role;
     }
     public function scopeUsers($query) {
         return $query->where('status', 0)->orWhere('status', 1);

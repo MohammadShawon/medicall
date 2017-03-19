@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Auth;
 
 use App\User;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 
@@ -64,12 +66,23 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
+        $token = str_random(30);
+        $user = User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'birthday' => $data['dob'],
             'gender' => $data['gender'],
-            'password' => bcrypt($data['password'])
+            'password' => bcrypt($data['password']),
+            'mail_validation' => $token
         ]);
+        if($user) {
+            Mail::send('emails.mail-validation', ['token'=>$token], function ($message) use ($data) {
+                $message->from(env('FROM_EMAIL'), env('FROM_NAME'));
+                $message->to($data['email']);
+                $message->subject('Confirm your account at Medicall');
+            });
+        }
+        Session::flash('message', 'Verify your account to continue.');
+        return $user;
     }
 }
