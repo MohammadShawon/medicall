@@ -2,12 +2,13 @@
 
 namespace App;
 
+use Laravel\Passport\HasApiTokens;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
 {
-    use Notifiable;
+    use HasApiTokens, Notifiable;
 
     /**
      * The attributes that are mass assignable.
@@ -44,7 +45,24 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
-
+    public function isPendingUser() {
+        return $this->status==0;
+    }
+    public function isUser() {
+        return $this->status==1;
+    }
+    public function isPendingDoctor() {
+        return $this->status==2;
+    }
+    public function isDoctor() {
+        return $this->status==3;
+    }
+    public function isModerator() {
+        return $this->status==4;
+    }
+    public function isAdmin() {
+        return $this->status==5;
+    }
     public function scopeUsers($query) {
         return $query->where('status', 0)->orWhere('status', 1);
     }
