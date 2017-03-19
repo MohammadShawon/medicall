@@ -12,6 +12,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/css/sweetalert.css">
 
     <!-- Scripts -->
     <script>
@@ -83,5 +84,27 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
+    <script src="/js/sweetalert.min.js"></script>
+
+    <script>
+        window.onload = (function(){
+            @foreach($errors->all() as $message)
+              swal({
+                title: "STOP!",
+                text: "{{ str_replace("\"", "\\\"", $message) }}",
+                type: "error",
+                confirmButtonText: "OK"
+            });
+            @endforeach
+              @if(Session::has('message'))
+              swal({
+                title: "SUCCESS!",
+                text: "{{ str_replace("\"", "\\\"", Session::get('message')) }}",
+                type: "success",
+                confirmButtonText: "OK"
+            });
+            @endif
+        });
+    </script>
 </body>
 </html>

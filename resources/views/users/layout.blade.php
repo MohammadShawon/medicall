@@ -45,10 +45,32 @@
 @yield('scripts')
 <script src="/js/sweetalert.min.js"></script>
 <script>
+    var msgshow = function(data) {
+        // write what you want with this data
+
+        console.log(data);
+    }
+</script>
+
+{!! talk_live(['user'=>["id"=>auth()->user()->id, 'callback'=>['msgshow']]]) !!}
+<script>
     window.onload = (function(){
         @foreach($errors->all() as $message)
-        {{ dd($message) }}
+          swal({
+            title: "STOP!",
+            text: "{{ str_replace("\"", "\\\"", $message) }}",
+            type: "error",
+            confirmButtonText: "OK"
+        });
         @endforeach
+          @if(Session::has('message'))
+          swal({
+            title: "SUCCESS!",
+            text: "{{ str_replace("\"", "\\\"", Session::get('message')) }}",
+            type: "success",
+            confirmButtonText: "OK"
+        });
+        @endif
     });
 </script>
 </body>

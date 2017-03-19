@@ -10,7 +10,7 @@
                     <p><span>Name </span>: {{ $user->name }} </p>
                 </div>
                 <div class="bio-row">
-                    <p><span>Birthday</span>: 27 August 1987</p>
+                    <p><span>Birthday</span>: {{ $user->birthday }}</p>
                 </div>
                 <div class="bio-row">
                     <p><span>City </span>: United</p>

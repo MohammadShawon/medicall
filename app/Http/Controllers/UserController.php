@@ -36,8 +36,7 @@ class UserController extends Controller
             $this->redirectBack($request->ajax(), 'User not found', 'not_found', 404);
         $validator = Validator::make($request->all(), [
             'name' => 'required|max:255',
-            'date_of_birth' => 'required|date',
-            'gender' => 'required',
+            'birthday' => 'required|date',
             'about_me' => 'nullable',
             'city' => 'nullable',
             'occupation' => 'nullable',
@@ -49,13 +48,12 @@ class UserController extends Controller
             $this->redirectBack($request->ajax(), $validator->errors()->first(), 'validation_error', 422);
         }
         $user->name = $request->name;
-        $user->dob = $request->date_of_birth;
-        $user->gender = $request->gender;
+        $user->birthday = $request->birthday;
         if($request->about_me) $user->bio = $request->about_me;
         if($request->city) $user->city = $request->city;
         if($request->occupation) $user->occupation = $request->occupation;
         if($request->phone) $user->phone = $request->phone;
-        if($request->blood_group) $user->blood_group = $request->bood_group;
+        if($request->blood_group) $user->blood_group = $request->blood_group;
         if($request->address) $user->address = $request->address;
         $user->save();
         if($request->ajax())
@@ -108,7 +106,6 @@ class UserController extends Controller
         {
             $bag = new MessageBag();
             $bag->add('message', $message);
-            $bag->add('error', $error);
             return redirect()->back()->withErrors($bag)->withInput();
         }
     }

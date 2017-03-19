@@ -41,7 +41,12 @@
                             <label for="date-of-birth" class="col-md-4 control-label">Date Of Birth</label>
 
                             <div class="col-md-6">
-                                <input id="date-of-birth" type="date" class="form-control" name="dob" required>
+                                <input id="birthday" type="date" class="form-control" name="birthday" value="{{ old('birthday') }}" required>
+                                @if ($errors->has('birthday'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('birthday') }}</strong>
+                                    </span>
+                                @endif
                             </div>
                         </div>
 

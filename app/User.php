@@ -107,14 +107,6 @@ class User extends Authenticatable
         return $this->hasMany(Appointment::class, 'doctor_id');
     }
 
-    public function messageFrom() {
-        return $this->hasMany(Message::class, 'from_id');
-    }
-
-    public function messageTo() {
-        return $this->hasMany(Message::class, 'to_id');
-    }
-
     public function prescriptionsByDoctor() {
         return $this->hasMany(Prescription::class, 'doctor_id');
     }

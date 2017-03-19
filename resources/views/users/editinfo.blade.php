@@ -7,7 +7,7 @@
                 <div class="form-group">
                     <label class="col-lg-2 control-label">Name</label>
                     <div class="col-lg-6">
-                        <input type="text" class="form-control" id="name" placeholder=" " value="{{ old('name', $user->name) }}">
+                        <input type="text" class="form-control" id="name" name="name" placeholder=" " value="{{ old('name', $user->name) }}">
                     </div>
                 </div>
                 <div class="form-group">
@@ -25,7 +25,7 @@
                 <div class="form-group">
                     <label class="col-lg-2 control-label">Birthday</label>
                     <div class="col-lg-6">
-                        <input type="date" class="form-control" id="date_of_birth" name="date_of_birth" placeholder=" " value="{{ old('date_of_birth', $user->dob) }}">
+                        <input type="date" class="form-control" id="birthday" name="birthday" placeholder=" " value="{{ old('birthday', $user->birthday) }}">
                     </div>
                 </div>
                 <div class="form-group">
@@ -49,7 +49,7 @@
                 <div class="form-group">
                     <label class="col-lg-2 control-label">Address</label>
                     <div class="col-lg-6">
-                        <textarea name="" id="address" name="address" class="form-control" cols="30" rows="2">{{ old('address', $user->address) }}</textarea>
+                        <textarea id="address" name="address" class="form-control" cols="30" rows="2">{{ old('address', $user->address) }}</textarea>
                     </div>
                 </div>
 
