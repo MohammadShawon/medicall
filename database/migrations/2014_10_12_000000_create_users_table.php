@@ -25,7 +25,10 @@ class CreateUsersTable extends Migration
             $table->text('bio')->nullable();
             $table->string('occupation')->nullable();
             $table->string('website')->nullable();
-
+            $table->string('city')->nullable();
+            $table->string('blood_group')->nullable();
+            $table->string('photo')->nullable();
+            $table->string('mail_validation')->nullable();
             /**
              * 0 = not verified
              * 1 = normal user/patient - verified

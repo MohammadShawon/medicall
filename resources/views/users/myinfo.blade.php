@@ -7,10 +7,7 @@
             <h1>Bio Graph</h1>
             <div class="row">
                 <div class="bio-row">
-                    <p><span>First Name </span>: Jenifer </p>
-                </div>
-                <div class="bio-row">
-                    <p><span>Last Name </span>: Smith</p>
+                    <p><span>Name </span>: {{ $user->name }} </p>
                 </div>
                 <div class="bio-row">
                     <p><span>Birthday</span>: 27 August 1987</p>
