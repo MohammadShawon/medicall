@@ -29,6 +29,6 @@ class User
         return $request->ajax()?response()->json([
             'message' => 'You need to log in first.',
             'error' => 'auth_required'
-        ]):redirect()->intended('api-login');
+        ]):redirect()->intended('login');
     }
 }
