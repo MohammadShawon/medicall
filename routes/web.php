@@ -17,4 +17,5 @@ Route::group(['middleware'=>['user', 'doctor', 'moderator', 'admin']], function 
 });
 Auth::routes();
 Route::get('verify/{token}', 'UserController@verify');
+Route::get('profile', 'UserController@index');
 Route::get('msg', 'MessageController@test');

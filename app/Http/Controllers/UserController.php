@@ -11,7 +11,8 @@ use Illuminate\Support\MessageBag;
 class UserController extends Controller
 {
     protected function index() {
-        return view('users.profile');
+        $user = auth()->user();
+        return view('users.profile',compact('user'));
     }
     public function apiLogin(Request $request) {
         if(Auth::attempt(['email'=>$request->email, 'password'=>$request->password])) {
