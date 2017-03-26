@@ -33,7 +33,7 @@
                 -->
             </li>
             <li>
-                <a class="" href="#">
+                <a class="" href="/myappointment">
                     <i class="icon_genius"></i>
                     <span>My Appointment</span>
                 </a>
@@ -42,6 +42,12 @@
                 <a class="" href="#">
                     <i class="icon_genius"></i>
                     <span>Prescription</span>
+                </a>
+            </li>
+            <li>
+                <a class="" href="/schedule">
+                    <i class="icon_calendar"></i>
+                    <span>Schedule</span>
                 </a>
             </li>
             <li>

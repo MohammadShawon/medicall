@@ -7,7 +7,7 @@
     <!--sidebar end-->
     <!--main content start-->
 
-    @include('users.appointment-form')
+    @include('users.schedule-form')
     <!--main content end-->
 
     @include('users.user-footer')

@@ -32,9 +32,11 @@
 
   @include('layouts.nav-home')
 
-  <div class="content">
+
+    <div class="content">
        @yield('content')
-   </div> 
+    </div>
+
 
 
    @include('layouts.footer')

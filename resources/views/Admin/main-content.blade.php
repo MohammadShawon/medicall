@@ -50,7 +50,7 @@
                 @include('users.editinfo')
 
                 <!-- Appointment form starts  -->
-                    @include('users.appointment')
+                    @include('users.myappointment')
                 </div>
             </div>
         </div>

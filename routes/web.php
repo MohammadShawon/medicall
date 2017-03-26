@@ -3,9 +3,9 @@
 Route::post('api-login', 'UserController@apiLogin');
 Route::get('/', 'ViewsController@index');
 Route::get('/appointment', function() {
-    return view('appointment');
+    return view('users.appointment');
 });
-Route::group(['middleware'=>['user', 'doctor', 'moderator', 'admin']], function (){
+Route::group(['middleware'=>['user']], function (){
     /**
      * User Routes
      */
@@ -18,4 +18,7 @@ Route::group(['middleware'=>['user', 'doctor', 'moderator', 'admin']], function 
 Auth::routes();
 Route::get('verify/{token}', 'UserController@verify');
 Route::get('profile', 'UserController@index');
+Route::get('appointment', 'UserController@appointment');
+Route::get('schedule', 'UserController@schedule');
+Route::get('myappointment', 'UserController@myappointment');
 Route::get('msg', 'MessageController@test');
