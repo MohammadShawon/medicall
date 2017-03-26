@@ -1,11 +1,12 @@
 <!--header start-->
 <header class="header dark-bg">
     <div class="toggle-nav">
-        <div class="icon-reorder tooltips" data-original-title="Toggle Navigation" data-placement="bottom"><i class="icon_menu"></i></div>
+        <div class="icon-reorder tooltips" data-original-title="Medicall" data-placement="bottom"><i class="icon_menu"></i></div>
     </div>
 
+
     <!--logo start-->
-    <a href="index.html" class="logo">Medi <span class="lite">Call</span></a>
+    <a href="/Admin" class="logo">Medi <span class="lite">Call</span></a>
     <!--logo end-->
 
     <div class="nav search-row" id="top_menu">
@@ -100,3 +101,4 @@
     </div>
 </header>
 <!--header end-->
+

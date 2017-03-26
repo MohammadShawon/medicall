@@ -994,7 +994,16 @@ ul.sidebar-menu li.active a i {
 }
 
 
+.appointment-info>p {
+    display: inline-block;
+    font-size: 18px;
+    padding: 5px;
+}
 
+.appointment-info>span{
+    margin-left: 30px;
+    color: yellowgreen;
+}
 
 .header, .footer {
 

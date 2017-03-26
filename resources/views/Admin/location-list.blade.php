@@ -1,7 +1,10 @@
-<?php
-/**
- * Created by PhpStorm.
- * User: codemagic
- * Date: 3/26/17
- * Time: 1:15 PM
- */
+@extends('Admin.layout-admin')
+
+@section('content')
+    @include('Admin.admin-nav')
+    @include('Admin.admin-sidebar')
+    @include('Admin.location-list-table')
+
+    @include('users.user-footer')
+
+@endsection

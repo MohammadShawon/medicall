@@ -18,6 +18,10 @@ class UserController extends Controller
         $user = auth()->user();
         return view('users.appointment',compact('user'));
     }
+    protected function appointmentinfo(){
+        $user = auth()->user();
+        return view('users.myappointment-info',compact('user'));
+    }
     protected function schedule(){
         $user = auth()->user();
         return view('users.myschedule',compact('user'));
