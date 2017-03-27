@@ -38,7 +38,7 @@
 
             </li>
             <li>
-                <a class="" href="/locations">
+                <a class="" href="/admin/locations">
                     <i class="icon_map"></i>
                     <span>Location</span>
 

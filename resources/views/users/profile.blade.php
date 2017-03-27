@@ -1,13 +1,13 @@
 @extends('users.layout')
 
 @section('content')
-@include('users.user-nav')
+@include('users.partials.user-nav')
 <!--sidebar start-->
-@include('users.user-sidebar')
+@include('users.partials.user-sidebar')
 <!--sidebar end-->
 <!--main content start-->
-@include('users.content')
+@include('users.partials.content')
 <!--main content end-->
 
-@include('users.user-footer')
+@include('users.partials.user-footer')
 @endsection

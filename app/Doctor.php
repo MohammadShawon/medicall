@@ -6,16 +6,19 @@ use Illuminate\Database\Eloquent\Model;
 
 class Doctor extends Model
 {
-    protected function user() {
+    public function user() {
         return $this->belongsTo(User::class);
     }
-    protected function prescriptions() {
+    public function hospital() {
+        return $this->belongsTo(Hospital::class);
+    }
+    public function prescriptions() {
         return $this->hasMany(Prescription::class);
     }
-    protected function appointments() {
+    public function appointments() {
         return $this->hasMany(Appointment::class);
     }
-    protected function schedule() {
+    public function schedule() {
         return $this->hasMany(Schedule::class);
     }
 }

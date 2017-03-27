@@ -22,7 +22,7 @@ class CreateDoctorsTable extends Migration
              * [Saturday => 02:00 PM | 2 Hours]
              */
             $table->text('availability')->nullable();
-            $table->string('hospital')->nullable();
+            $table->integer('hospital_id')->nullable();
             $table->unsignedInteger('bdmo_no')->nullable();
             $table->string('speciality')->nullable();
             $table->timestamps();

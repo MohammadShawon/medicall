@@ -6,13 +6,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class Appointment extends Model
 {
-    protected function doctor() {
-        return $this->belongsTo(User::class, 'doctor_id', 'id');
+    public function doctor() {
+        return $this->belongsTo(User::class, 'id', 'doctor_id');
     }
-    protected function patient() {
-        return $this->belongsTo(User::class, 'patient_id', 'id');
+    public function patient() {
+        return $this->belongsTo(User::class, 'id','user_id');
     }
-    protected function prescription() {
+    public function prescription() {
         return $this->hasOne(Prescription::class);
     }
 }

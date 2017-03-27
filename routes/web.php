@@ -6,7 +6,6 @@ Route::get('/Admin', 'AdminController@index');
 Route::get('/doctorlist', 'AdminController@doctorlist');
 Route::get('/patientlist', 'AdminController@patientlist');
 Route::get('/category', 'AdminController@category');
-Route::get('/locations', 'AdminController@locations');
 Route::get('/hospitals', 'AdminController@hospitals');
 Route::get('/verify', 'AdminController@verify');
 Route::get('/appointment', function() {
@@ -19,9 +18,41 @@ Route::group(['middleware'=>['user']], function (){
     Route::get('users', 'UserController@all');
     Route::get('profile', 'UserController@get');
     Route::post('profile', 'UserController@update');
+
+    /**
+     * Doctor routes [application]
+     */
+    Route::get('doctors/request', 'DoctorController@application');
+    Route::post('doctors/request', 'DoctorController@store');
+
+    Route::get('hospitals/typeahead/q={query}', 'HospitalController@typeAhead');
+});
+
+Route::group(['middleware' => ['admin'], 'prefix'=>'admin'], function (){
+    /**
+     * Admin Routes
+     */
     Route::get('user/{id}', 'UserController@get');
     Route::post('user/{id}', 'UserController@update');
+    Route::post('doctors/request', 'DoctorController@store');
+
+    /**
+     * Manage Area
+     */
+    Route::get('locations', 'AreaController@locations');
+    Route::post('/divisions/add', 'AreaController@storeDivision');
+    Route::post('/districts/add', 'AreaController@storeDistrict');
+
+    Route::get('/divisions/typeahead/q={query}', 'AreaController@typeAheadDivisions');
+
+    /**
+     * Manage Hospitals
+     */
+
+    Route::post('/hospitals/add', 'HospitalController@store');
 });
+
+
 Auth::routes();
 Route::get('verify/{token}', 'UserController@verify');
 Route::get('profile', 'UserController@index');

@@ -100,7 +100,7 @@ class User extends Authenticatable
     }
 
     public function appointmentsByPatient() {
-        return $this->hasMany(Appointment::class, 'patient_id');
+        return $this->hasMany(Appointment::class, 'user_id');
     }
 
     public function appointmentsByDoctor() {
@@ -108,10 +108,10 @@ class User extends Authenticatable
     }
 
     public function prescriptionsByDoctor() {
-        return $this->hasMany(Prescription::class, 'doctor_id');
+        return $this->hasManyThrough(Prescription::class, Appointment::class, 'doctor_id');
     }
     public function prescriptionsForPatient() {
-        return $this->hasMany(Prescription::class, 'patient_id');
+        return $this->hasManyThrough(Prescription::class, Appointment::class);
     }
 
     public function tags() {

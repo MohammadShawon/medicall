@@ -15,7 +15,7 @@
             <div class="col-lg-12">
                 <section class="panel">
                     <header class="panel-heading">
-                        <h3 class="text-center">General Report</Char>
+                        <h3 class="text-center">General Report</h3>
                     </header>
                     <div class="panel-body">
                         <div class="tab-pane" id="chartjs">

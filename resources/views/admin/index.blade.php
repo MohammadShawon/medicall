@@ -1,4 +1,4 @@
-@extends('Admin.layout-admin')
+@extends('admin.layout-admin')
 
 {{--@section('content')--}}
     {{--@include('Admin.admin-nav')--}}
@@ -7,12 +7,12 @@
 {{--@endsection--}}
 
 @section('content')
-    @include('Admin.admin-nav')
+    @include('admin.partials.admin-nav')
     <!--sidebar start-->
-    @include('Admin.admin-sidebar')
+    @include('admin.partials.admin-sidebar')
     <!--sidebar end-->
     <!--main content start-->
-    @include('Admin.main-content')
+    @include('admin.partials.main-content')
     <!--main content end-->
-    @include('users.user-footer')
+    @include('users.partials.user-footer')
 @endsection

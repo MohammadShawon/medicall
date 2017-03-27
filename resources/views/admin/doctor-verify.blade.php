@@ -1,9 +1,9 @@
 
-@extends('Admin.layout-admin')
+@extends('admin.layout-admin')
 
 @section('content')
-    @include('Admin.admin-nav')
-    @include('Admin.admin-sidebar')
+    @include('admin.partials.admin-nav')
+    @include('admin.partials.admin-sidebar')
     <section id="main-content" class="main-content">
         <section class="wrapper">
             <!-- page start-->
@@ -60,6 +60,6 @@
         </section>
     </section>
 
-    @include('users.user-footer')
+    @include('users.partials.user-footer')
 
 @endsection
