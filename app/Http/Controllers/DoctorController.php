@@ -44,8 +44,10 @@ class DoctorController extends Controller
 
     public function application() {
         $user = auth()->user();
-        Session::flash('message', 'You have already requested to be a doctor.');
-        if($user->status==2) return redirect()->back();
+        if($user->status==2) {
+            Session::flash('message', 'You have already requested to be a doctor.');
+            return redirect()->back();
+        }
         return view('users.doctor-application', compact('user'));
     }
     public function store(Request $request) {

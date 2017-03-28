@@ -9,7 +9,7 @@
                 </a>
             </li>
             <li class="sub-menu">
-                <a href="javascript:;" class="">
+                <a href="/profile" class="">
                     <i class="icon_document_alt"></i>
                     <span>My Info</span>
                     <span class="menu-arrow arrow_carrot-right"></span>
