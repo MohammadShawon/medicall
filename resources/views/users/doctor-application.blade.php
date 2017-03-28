@@ -15,7 +15,7 @@
                     <section class="panel">
                         <div class="panel-body bio-graph-info">
                             <h1>Apply as Doctor</h1>
-                            <form class="form-horizontal" role="form" action="/doctors/request" method="post">
+                            <form class="form-horizontal" role="form" action="/doctors/apply" method="post">
                                 {{ csrf_field() }}
                                 <div class="form-group">
                                     <label class="col-lg-2 control-label">Hospital</label>

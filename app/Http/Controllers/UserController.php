@@ -10,26 +10,6 @@ use Illuminate\Support\MessageBag;
 
 class UserController extends Controller
 {
-    protected function index() {
-        $user = auth()->user();
-        return view('users.profile',compact('user'));
-    }
-    protected function appointment(){
-        $user = auth()->user();
-        return view('users.appointment',compact('user'));
-    }
-    protected function appointmentinfo(){
-        $user = auth()->user();
-        return view('users.myappointment-info',compact('user'));
-    }
-    protected function schedule(){
-        $user = auth()->user();
-        return view('users.myschedule',compact('user'));
-    }
-    protected function myappointment(){
-        $user = auth()->user();
-        return view('users.appointment-list',compact('user'));
-    }
     public function apiLogin(Request $request) {
         if(Auth::attempt(['email'=>$request->email, 'password'=>$request->password])) {
             $user = auth()->user();

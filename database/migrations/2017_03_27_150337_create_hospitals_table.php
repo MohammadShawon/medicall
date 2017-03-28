@@ -17,7 +17,8 @@ class CreateHospitalsTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->string('slug');
-            $table->integer('area_id');
+            $table->integer('district_id');
+            $table->integer('division_id');
             $table->timestamps();
         });
     }

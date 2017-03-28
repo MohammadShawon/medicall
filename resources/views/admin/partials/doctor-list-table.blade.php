@@ -16,12 +16,13 @@
                             <th><i class="icon_mobile"></i> BDMO Number</th>
                             <th><i class="icon_cogs"></i> Speciality</th>
                         </tr>
+                        @foreach($users as $user)
                         <tr>
-                            <td>Mr.Doctor</td>
-                            <td>GAzipur,Dhaka</td>
-                            <td>01670032464</td>
-                            <td>BDMC</td>
-                            <td>1234568790</td>
+                            <td>{{ $user->name }}</td>
+                            <td>{{ $user->address }}</td>
+                            <td>{{ $user->phone }}</td>
+                            <td>{{ $user->doctor->hospital->name }}</td>
+                            <td>{{ $user->doctor->bdmo_no }}</td>
                             <td>
                                 <div class="btn-group">
                                     {{--<a class="btn btn-primary" href="#"><i class="icon_plus_alt2"></i></a>--}}
@@ -31,22 +32,7 @@
                                 </div>
                             </td>
                         </tr>
-                        <tr>
-                            <td>Mr.Doctor</td>
-                            <td>GAzipur,Dhaka</td>
-                            <td>01670032464</td>
-                            <td>BDMC</td>
-                            <td>1234568790</td>
-                            <td>
-                                <div class="btn-group">
-                                    <a class="btn btn-primary" href="#"><i class="icon_pencil-edit"></i></a>
-                                    {{--<a class="btn btn-primary" href="#"><i class="icon_plus_alt2"></i></a>--}}
-                                    {{--<a class="btn btn-success" href="#"><i class="icon_check_alt2"></i></a>--}}
-                                    <a class="btn btn-danger" href="#"><i class="icon_close_alt2"></i></a>
-                                </div>
-                            </td>
-                        </tr>
-
+                        @endforeach
                         </tbody>
                     </table>
                 </section>
