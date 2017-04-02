@@ -10,7 +10,6 @@ use Illuminate\Support\MessageBag;
 
 class UserController extends Controller
 {
-<<<<<<< HEAD
     protected function index() {
         $user = auth()->user();
         if ($user){
@@ -43,8 +42,7 @@ class UserController extends Controller
         $user = auth()->user();
         return view('users.appointment-list',compact('user'));
     }
-=======
->>>>>>> ac53063799c3ddd49482064a49efb68c0eab55f7
+
     public function apiLogin(Request $request) {
         if(Auth::attempt(['email'=>$request->email, 'password'=>$request->password])) {
             $user = auth()->user();
