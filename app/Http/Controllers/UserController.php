@@ -12,11 +12,23 @@ class UserController extends Controller
 {
     protected function index() {
         $user = auth()->user();
-        return view('users.profile',compact('user'));
+        if ($user){
+            return view('users.profile',compact('user'));
+        }
+        else{
+            return view('auth.register');
+        }
+
     }
     protected function appointment(){
         $user = auth()->user();
-        return view('users.appointment',compact('user'));
+        if ($user){
+            return view('users.appointment',compact('user'));
+        }
+        else{
+            return view('auth.login');
+        }
+
     }
     protected function appointmentinfo(){
         $user = auth()->user();

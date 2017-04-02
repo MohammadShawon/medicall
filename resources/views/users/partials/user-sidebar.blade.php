@@ -3,7 +3,7 @@
         <!-- sidebar menu start-->
         <ul class="sidebar-menu">
             <li class="active">
-                <a class="" href="index.html">
+                <a class="" href="/profile">
                     <i class="icon_house_alt"></i>
                     <span>My Board</span>
                 </a>
@@ -20,7 +20,7 @@
                 </ul> -->
             </li>
             <li class="sub-menu">
-                <a href="javascript:;" class="">
+                <a href="/appointment" class="">
                     <i class="icon_desktop"></i>
                     <span>Make Appointment</span>
                     <!-- <span class="menu-arrow arrow_carrot-right"></span> -->
