@@ -9,7 +9,7 @@
                 </a>
             </li>
             <li class="sub-menu">
-                <a href="javascript:;" class="">
+                <a href="/profile" class="">
                     <i class="icon_document_alt"></i>
                     <span>My Info</span>
                     <span class="menu-arrow arrow_carrot-right"></span>
@@ -33,11 +33,19 @@
                 -->
             </li>
             <li>
-                <a class="" href="/myappointment">
+                <a class="" href="/appointment">
                     <i class="icon_genius"></i>
                     <span>My Appointment</span>
                 </a>
             </li>
+            @if(auth()->user()->isUser())
+            <li>
+                <a class="" href="/doctors/apply">
+                    <i class="icon_genius"></i>
+                    <span>Apply as Doctor</span>
+                </a>
+            </li>
+            @endif
             <li>
                 <a class="" href="#">
                     <i class="icon_genius"></i>

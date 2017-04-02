@@ -85,4 +85,8 @@ class AreaController extends Controller
         $districts = District::all();
         return view('admin.location-list', compact('divisions'), compact('districts'));
     }
+
+    public function getDistricts($division_id) {
+        return Division::find($division_id)->district;
+    }
 }

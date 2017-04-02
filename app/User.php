@@ -121,4 +121,8 @@ class User extends Authenticatable
     public function category() {
         return $this->hasOne(UserCategory::class);
     }
+
+    public function doctor() {
+        return $this->hasOne(Doctor::class);
+    }
 }

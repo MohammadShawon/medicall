@@ -10,14 +10,9 @@ class AdminController extends Controller
         $user = auth()->user();
         return view('Admin.index',compact('user'));
     }
-    protected function patientlist() {
+    protected function patientList() {
         $user = auth()->user();
         return view('Admin.patient-list',compact('user'));
-    }
-
-    protected function doctorlist() {
-        $user = auth()->user();
-        return view('Admin.doctor-list',compact('user'));
     }
 
     protected function verify() {

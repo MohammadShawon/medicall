@@ -46,10 +46,12 @@
 <script src="/js/sweetalert.min.js"></script>
 <script src="/js/jquery.scrollTo.min.js"></script>
 <script src="/js/jquery.nicescroll.js" type="text/javascript"></script>
-<!-- chartjs -->
-<script src="/js/Chart.js"></script>
-<!-- custom chart script for this page only-->
-<script src="/js/chartjs-custom.js"></script>
+@if(Request::url()=='admin')
+    <!-- chartjs -->
+    <script src="/js/Chart.js"></script>
+    <!-- custom chart script for this page only-->
+    <script src="/js/chartjs-custom.js"></script>
+@endif
 <script>
     var msgshow = function(data) {
         // write what you want with this data
