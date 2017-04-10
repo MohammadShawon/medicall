@@ -51,14 +51,17 @@ class User extends Authenticatable
     public function isPendingDoctor() {
         return $this->status==2;
     }
-    public function isDoctor() {
+    public function isBDMODoctor() {
         return $this->status==3;
     }
-    public function isModerator() {
+    public function isDoctor() {
         return $this->status==4;
     }
-    public function isAdmin() {
+    public function isModerator() {
         return $this->status==5;
+    }
+    public function isAdmin() {
+        return $this->status==6;
     }
     public function getRoleAttribute() {
         $role = 'User';
@@ -67,15 +70,18 @@ class User extends Authenticatable
                 $role = 'User';
                 break;
             case 2:
-                $role = 'Doctor (Unverified)';
+                $role = 'Doctor (Mail Unverified)';
                 break;
             case 3:
-                $role = 'Doctor';
+                $role = 'Doctor (BDMO Unverified)';
                 break;
             case 4:
-                $role = 'Moderator';
+                $role = 'Doctor';
                 break;
             case 5:
+                $role = 'Moderator';
+                break;
+            case 6:
                 $role = 'Admin';
                 break;
             default:
@@ -92,11 +98,14 @@ class User extends Authenticatable
     }
 
     public function scopeDoctors($query) {
-        return $query->where('status', 2)->orWhere('status', 3);
+        return $query->where('status', 2)->orWhere('status', 3)->orWhere('status', 4);
     }
 
-    public function scopeVerifiedDoctors($query) {
+    public function scopeMailVerifiedDoctors($query) {
         return $query->where('status', 3);
+    }
+    public function scopeVerifiedDoctors($query) {
+        return $query->where('status', 4);
     }
 
     public function appointmentsByPatient() {

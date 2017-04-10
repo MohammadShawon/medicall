@@ -18,7 +18,7 @@ class User
     public function handle($request, Closure $next)
     {
         if(auth()->check()){
-            if(!auth()->user()->isPendingUser())
+            if(!auth()->user()->isPendingUser() && !auth()->user()->isPendingDoctor())
                 return $next($request);
             else
             if($request->ajax()){

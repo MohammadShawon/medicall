@@ -59,7 +59,7 @@ class UserController extends Controller
         ], 403);
     }
     protected function update($id=null, Request $request) {
-        if($id!=null && !in_array(Auth::user()->status, [4,5]))
+        if($id!=null && !in_array(Auth::user()->status, [5,6]))
             return $this->redirectBack($request->ajax(), 'Access Denied', 'role_mismatch', 403);
         $user = ($id==null)?auth()->user():User::find($id);
         if($user==null)
@@ -117,13 +117,20 @@ class UserController extends Controller
             return view('users.profile', compact('user'));
     }
 
-    public function verify($token) {
+    public function verifyUser($token) {
         $user = User::where('mail_validation', $token)->first();
         if(!$user) return response('Not found', 404);
         $user->status = 1;
         $user->save();
         return redirect()->intended('/')->with('message', 'Your account has been verified');
     }
+//    public function verifyDoctor($token) {
+//        $user = User::where('mail_validation', $token)->first();
+//        if(!$user) return response('Not found', 404);
+//        $user->status = 3;
+//        $user->save();
+//        return redirect()->intended('/')->with('message', 'Your email account has been verified');
+//    }
 
     private function redirectBack($ajax, $message, $error, $code) {
         if($ajax) {

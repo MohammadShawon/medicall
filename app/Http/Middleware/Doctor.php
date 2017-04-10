@@ -31,9 +31,18 @@ class Doctor
                     $msg = new MessageBag();
                     $message = 'You don\'t have access to this page.';
                     if(auth()->user()->isPendingDoctor())
+                    {
+                        $message = 'Your need to verify your mail.';
+                        $msg->add('message', $message);
+                        return redirect()->back()->withErrors($msg);
+                    }
+                    if(auth()->user()->isVerifyDoctor())
+                    {
                         $message = 'Your doctor request is pending for approval.';
-                    $msg->add('message', $message);
-                    return redirect()->back()->withErrors($msg);
+                        $msg->add('message', $message);
+                        return redirect()->back()->withErrors($msg);
+                    }
+
                 }
         }
         return $request->ajax()?response()->json([

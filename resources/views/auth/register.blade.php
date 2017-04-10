@@ -63,6 +63,19 @@
                                 </label>
                             </div>
                         </div>
+                        <div class="form-group">
+                            <label for="Status" class="col-md-4 control-label">Are You?</label>
+                            <div class="col-md-3">
+                                <label class="radio-inline">
+                                    <input name="status" id="input-gender-male" value="0" type="radio" checked />Civil
+                                </label>
+                            </div>
+                            <div class="col-md-3">
+                                <label class="radio-inline">
+                                    <input name="status" id="input-gender-female" value="2" type="radio" />Doctor
+                                </label>
+                            </div>
+                        </div>
 
                         <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
                             <label for="password" class="col-md-4 control-label">Password</label>

@@ -72,6 +72,7 @@ class RegisterController extends Controller
             'email' => $data['email'],
             'birthday' => $data['birthday'],
             'gender' => $data['gender'],
+            'status' => $data['status'],
             'password' => bcrypt($data['password']),
             'mail_validation' => $token
         ]);

@@ -18,7 +18,7 @@ class DoctorController extends Controller
     }
 
     public function getNonVerified() {
-        $users = User::where('status', 2)->get();
+        $users = User::where('status', 3)->get();
         return view('admin.doctor-verify', compact('users'));
     }
     public function approve($id)
@@ -70,6 +70,14 @@ class DoctorController extends Controller
         $user->save();
         Session::flash('message', 'You application has been submitted.');
         return redirect('/');
+    }
+
+    public function verifyDoctor($token) {
+        $user = User::where('mail_validation', $token)->first();
+        if(!$user) return response('Not found', 404);
+        $user->status = 3;
+        $user->save();
+        return redirect()->intended('/')->with('message', 'Your email account has been verified');
     }
 
     public function get($id) {

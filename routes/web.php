@@ -11,6 +11,7 @@ Route::group(['middleware'=>['user']], function (){
     Route::get('profile', 'UserController@get');
     Route::post('profile', 'UserController@update');
 
+
     /**
      * Doctor routes [application]
      */
@@ -31,6 +32,11 @@ Route::group(['middleware'=>['user']], function (){
     Route::get('appointment', 'AppointmentController@index');
     Route::get('appointment/list', 'AppointmentController@myAppointment');
     Route::get('appointment/{id}/info', 'AppointmentController@appointmentInfo');
+});
+
+Route::group(['middleware' => ['doctor'], 'prefix' => 'doctor'], function(){
+
+
 });
 
 Route::group(['middleware' => ['admin'], 'prefix'=>'admin'], function (){
@@ -74,8 +80,19 @@ Route::group(['middleware' => ['admin'], 'prefix'=>'admin'], function (){
 });
 
 
+
 Auth::routes();
-Route::get('verify/{token}', 'UserController@verify');
+$status = DB::table('users')->where('status',0)->get();
+if($status)
+{
+    Route::get('verify/{token}', 'UserController@verifyUser');
+}
+$status = DB::table('users')->where('status',2)->get();
+if($status)
+{
+    Route::get('verify/{token}', 'DoctorController@verifyDoctor');
+}
+
 
 /**
  * Test Routes
