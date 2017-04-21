@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
@@ -12,11 +13,13 @@ class AdminController extends Controller
     }
     protected function doctorList() {
         $user = auth()->user();
-        return view('admin.doctor-list',compact('user'));
+        $users = User::where('status',4)->paginate();
+        return view('admin.doctor-list',compact('user'),compact('users'));
     }
     protected function patientList() {
         $user = auth()->user();
-        return view('admin.patient-list',compact('user'));
+        $users = User::where('status', 1)->paginate(10);
+        return view('admin.patient-list',compact('user'), compact('users'));
     }
 
     protected function verify() {

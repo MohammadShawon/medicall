@@ -20,17 +20,17 @@
                             <th><i class="icon_cogs"></i> Photo</th>
                             <th><i class="icon_cogs"></i> Action</th>
                         </tr>
-                        @foreach($user as $users)
+                        @foreach($users as $user)
                         <tr>
-                            <td>{{ $user->name }}</td>
-                            <td>{{ $user->address }}</td>
-                            <td>{{ $user->phone }}</td>
-                            <td>{{ $user->gender }}</td>
-                            <td>{{ $user->birthday }}</td>
-                            <td>{{ $user->bio }}</td>
-                            <td>{{ $user->occupation }}</td>
-                            <td>{{ $user->blood_group }}+</td>
-                            <td>{{ $user->photo }}</td>
+                            <td>{{ $user['name'] }}</td>
+                            <td>{{ $user['address'] }}</td>
+                            <td>{{ $user['phone'] }}</td>
+                            <td>{{ $user['gender'] }}</td>
+                            <td>{{ $user['birthday'] }}</td>
+                            <td>{{ $user['bio'] }}</td>
+                            <td>{{ $user['occupation'] }}</td>
+                            <td>{{ $user['blood_group'] }}+</td>
+                            <td>{{ $user['photo'] }}</td>
                             <td>
                                 <div class="btn-group">
                                     <a class="btn btn-primary" href="#"><i class="icon_plus_alt2"></i></a>
@@ -42,6 +42,7 @@
                         @endforeach
                         </tbody>
                     </table>
+                    {{ $users->links() }}
                 </section>
             </div>
         </div>
