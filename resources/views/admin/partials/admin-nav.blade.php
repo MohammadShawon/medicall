@@ -91,7 +91,9 @@
                         <a href="#"><i class="icon_clock_alt"></i> Verification</a>
                     </li>
                     <li>
-                        <a href="login.html"><i class="icon_key_alt"></i> Log Out</a>
+                        <form action="/logout" method="post" id="logout">{{ csrf_field() }}</form>
+                        <a class="" onclick="document.getElementById('logout').submit()"><i class="icon_key_alt"></i>Logout</a>
+                        {{--<a href=""><i class="icon_key_alt"></i> Log Out</a>--}}
                     </li>
                 </ul>
             </li>

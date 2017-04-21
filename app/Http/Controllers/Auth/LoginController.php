@@ -25,7 +25,15 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/profile';
+    protected function authenticated($request, $user)
+    {
+        if($user->isAdmin()) {
+            return redirect()->intended('/admin');
+        }
+
+        return redirect()->intended('/profile');
+    }
+   // protected $redirectTo = '/profile';
     /**
      * Create a new controller instance.
      *

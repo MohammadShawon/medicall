@@ -124,13 +124,13 @@ class UserController extends Controller
         $user->save();
         return redirect()->intended('/')->with('message', 'Your account has been verified');
     }
-//    public function verifyDoctor($token) {
-//        $user = User::where('mail_validation', $token)->first();
-//        if(!$user) return response('Not found', 404);
-//        $user->status = 3;
-//        $user->save();
-//        return redirect()->intended('/')->with('message', 'Your email account has been verified');
-//    }
+    public function verifyDoctor($token) {
+        $user = User::where('mail_validation', $token)->get();
+        if(!$user) return response('Not found', 404);
+        $user->status = 3;
+        $user->save();
+        return redirect()->intended('/')->with('message', 'Your email account has been verified');
+    }
 
     private function redirectBack($ajax, $message, $error, $code) {
         if($ajax) {

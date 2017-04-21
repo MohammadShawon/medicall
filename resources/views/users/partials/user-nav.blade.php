@@ -160,7 +160,9 @@
                         <a href="#"><i class="icon_chat_alt"></i> Answers</a>
                     </li>
                     <li class="nav-item">
-                        <form action="/logout" method="post" id="logout">{{ csrf_field() }}<a class="" onclick="document.getElementById('logout').submit()"><i class="icon_key_alt"></i>Logout</a></form>
+                        <form action="/logout" method="post" id="logout">{{ csrf_field() }}</form>
+                        <a class="" onclick="document.getElementById('logout').submit()"><i class="icon_key_alt"></i>Logout</a>
+                        {{--<form action="/logout" method="post" id="logout">{{ csrf_field() }}<a class="" onclick="document.getElementById('logout').submit()"><i class="icon_key_alt"></i>Logout</a></form>--}}
                     </li>
 
                 </ul>

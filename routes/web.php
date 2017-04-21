@@ -4,6 +4,11 @@ Route::post('api-login', 'UserController@apiLogin');
 Route::get('/', 'ViewsController@index');
 
 Route::group(['middleware'=>['user']], function (){
+
+    /**
+     * Verify Mail
+     */
+
     /**
      * User Routes
      */
@@ -34,7 +39,7 @@ Route::group(['middleware'=>['user']], function (){
     Route::get('appointment/{id}/info', 'AppointmentController@appointmentInfo');
 });
 
-Route::group(['middleware' => ['doctor'], 'prefix' => 'doctor'], function(){
+Route::group(['middleware' => ['doctor']], function(){
 
 
 });
@@ -79,8 +84,6 @@ Route::group(['middleware' => ['admin'], 'prefix'=>'admin'], function (){
     Route::get('category', 'AdminController@category');
 });
 
-
-
 Auth::routes();
 $status = DB::table('users')->where('status',0)->get();
 if($status)
@@ -92,6 +95,15 @@ if($status)
 {
     Route::get('verify/{token}', 'DoctorController@verifyDoctor');
 }
+
+
+
+
+
+
+//dd($userstatus);
+
+
 
 
 /**
