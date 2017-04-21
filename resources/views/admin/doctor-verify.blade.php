@@ -25,18 +25,18 @@
                             </tr>
                             @foreach($users as $user)
                                 <tr>
-                                    <td>{{ $user->name }}</td>
-                                    <td>{{ $user->address }}</td>
-                                    <td>{{ $user->phone }}</td>
-                                    <td>{{ $user->doctor->hospital->name }}</td>
-                                    <td>{{ $user->doctor->bdmo_no }}</td>
-                                    <td>{{ $user->doctor->speciality }}</td>
+                                    <td>{{ $user['name'] }}</td>
+                                    <td>{{ $user['address'] }}</td>
+                                    <td>{{ $user['phone'] }}</td>
+                                    <td>{{ $user['doctor']['hospital']['name'] }}</td>
+                                    <td>{{ $user['doctor']['bdmo_no'] }}</td>
+                                    <td>{{ $user['doctor']['speciality'] }}</td>
                                     <td>
                                         <div class="btn-group">
                                             {{--<a class="btn btn-primary" href="#"><i class="icon_plus_alt2"></i></a>--}}
-                                            <a class="btn btn-primary" onclick="verify({{ $user->id }})"><i class="icon_pencil-edit"></i></a>
+                                            <a class="btn btn-primary" onclick="verify({{ $user['id'] }})"><i class="icon_pencil-edit"></i></a>
                                             {{--<a class="btn btn-success" href="#"><i class="icon_check_alt2"></i></a>--}}
-                                            <a class="btn btn-danger" onclick="decline({{ $user->id }})"><i class="icon_close_alt2"></i></a>
+                                            <a class="btn btn-danger" onclick="decline({{ $user['id'] }})"><i class="icon_close_alt2"></i></a>
                                         </div>
                                     </td>
                                 </tr>

@@ -14,7 +14,7 @@ class DoctorController extends Controller
     public function doctorList() {
             $user = auth()->user();
             $users = User::verifiedDoctors()->get();
-            return view('Admin.doctor-list',compact('user'), compact('users'));
+            return view('admin.doctor-list',compact('user'), compact('users'));
     }
 
     public function getNonVerified() {

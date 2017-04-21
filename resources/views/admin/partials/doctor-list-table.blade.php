@@ -18,11 +18,11 @@
                         </tr>
                         @foreach($users as $user)
                         <tr>
-                            <td>{{ $user->name }}</td>
-                            <td>{{ $user->address }}</td>
-                            <td>{{ $user->phone }}</td>
-                            <td>{{ $user->doctor->hospital->name }}</td>
-                            <td>{{ $user->doctor->bdmo_no }}</td>
+                            <td>{{ $user['name'] }}</td>
+                            <td>{{ $user['address'] }}</td>
+                            <td>{{ $user['phone'] }}</td>
+                            <td>{{ $user['doctor']['hospital']['name'] }}</td>
+                            <td>{{ $user['doctor']['bdmo_no'] }}</td>
                             <td>
                                 <div class="btn-group">
                                     {{--<a class="btn btn-primary" href="#"><i class="icon_plus_alt2"></i></a>--}}

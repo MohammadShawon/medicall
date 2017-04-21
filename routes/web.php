@@ -40,8 +40,12 @@ Route::group(['middleware'=>['user']], function (){
 });
 
 Route::group(['middleware' => ['doctor']], function(){
-
-
+    Auth::routes();
+    $docstatus = DB::table('users')->where('status',2)->get();
+    if($docstatus)
+    {
+        Route::get('verify/{token}', 'DoctorController@verifyDoctor');
+    }
 });
 
 Route::group(['middleware' => ['admin'], 'prefix'=>'admin'], function (){
@@ -85,18 +89,8 @@ Route::group(['middleware' => ['admin'], 'prefix'=>'admin'], function (){
 });
 
 Auth::routes();
-$status = DB::table('users')->where('status',0)->get();
-if($status)
-{
-    Route::get('verify/{token}', 'UserController@verifyUser');
-}
-$status = DB::table('users')->where('status',2)->get();
-if($status)
-{
-    Route::get('verify/{token}', 'DoctorController@verifyDoctor');
-}
 
-
+Route::get('verify/{token}', 'UserController@verifyUser');
 
 
 

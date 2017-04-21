@@ -120,16 +120,9 @@ class UserController extends Controller
     public function verifyUser($token) {
         $user = User::where('mail_validation', $token)->first();
         if(!$user) return response('Not found', 404);
-        $user->status = 1;
+        $user->status = ($user->status==2?3:1);
         $user->save();
         return redirect()->intended('/')->with('message', 'Your account has been verified');
-    }
-    public function verifyDoctor($token) {
-        $user = User::where('mail_validation', $token)->get();
-        if(!$user) return response('Not found', 404);
-        $user->status = 3;
-        $user->save();
-        return redirect()->intended('/')->with('message', 'Your email account has been verified');
     }
 
     private function redirectBack($ajax, $message, $error, $code) {

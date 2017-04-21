@@ -78,7 +78,7 @@ class RegisterController extends Controller
         ]);
         if($user) {
             Mail::send('emails.mail-validation', ['token'=>$token], function ($message) use ($data) {
-                $message->from(env('FROM_EMAIL'), env('FROM_NAME'));
+                $message->from(env('MAIL_FROM_ADDRESS'), env('MAIL_FROM_NAME'));
                 $message->to($data['email']);
                 $message->subject('Confirm your account at Medicall');
             });
