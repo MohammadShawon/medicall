@@ -78,7 +78,7 @@ Update Category
                 <div class="form-group">
                     <label for="cateogry" class="control-label">Category:</label>
 
-                    <input type="text" class="form-control" id="cateogry" name="category_name" placeholder=" " value="{{ old('category_name', $category->category_name) }}">
+                    <input type="text" class="form-control" id="cateogry" name="category_name" placeholder=" " value="{{ old('category_name') }}">
                 </div>
             </div>
             <div class="modal-footer">
