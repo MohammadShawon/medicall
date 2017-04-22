@@ -85,6 +85,15 @@ class UserController extends Controller
         if($request->phone) $user->phone = $request->phone;
         if($request->blood_group) $user->blood_group = $request->blood_group;
         if($request->address) $user->address = $request->address;
+
+        if($request->hasFile("profile_picture") && $request->file("profile_picture")->isValid()) {
+            $file = $request->profile_picture;
+            $fname = md5(time()).".".$file->extension();
+            $file->storeAs("public/images/profile/", $fname);
+            @unlink(storage_path("app/public").$user->photo);
+            $user->photo = "/images/profile/".$fname;
+        }
+
         $user->save();
         if($request->ajax())
             return $user;
