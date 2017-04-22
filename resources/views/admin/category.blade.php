@@ -31,12 +31,10 @@
                     swal('ERROR!', 'Error adding new Category', 'error');
                 })
             };
-            window.deleteCategory = function() {
+            window.deleteCategory = function(id) {
                 const delcategory = $("#delcategory");
-                $.post('/admin/category/delete', {
-                    category: delcategory.val(),
-                    _token: window._token
-                }).done(function (success) {
+                $.get('/admin/category/delete/'+id)
+                    .done(function (success) {
                     swal('SUCCESS!', 'New Category Added', 'success');
                     delcategory.val('');
                 }).fail(function (error) {
