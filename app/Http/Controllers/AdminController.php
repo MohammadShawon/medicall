@@ -39,4 +39,6 @@ class AdminController extends Controller
         $user = auth()->user();
         return view('admin.hospital-list',compact('user'));
     }
+
+
 }

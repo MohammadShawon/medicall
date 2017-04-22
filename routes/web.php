@@ -35,17 +35,13 @@ Route::group(['middleware'=>['user']], function (){
      * Appointment
      */
     Route::get('appointment', 'AppointmentController@index');
+    Route::get('appointment/make', 'AppointmentController@makeAppointment');
     Route::get('appointment/list', 'AppointmentController@myAppointment');
     Route::get('appointment/{id}/info', 'AppointmentController@appointmentInfo');
 });
 
 Route::group(['middleware' => ['doctor']], function(){
-    Auth::routes();
-    $docstatus = DB::table('users')->where('status',2)->get();
-    if($docstatus)
-    {
-        Route::get('verify/{token}', 'DoctorController@verifyDoctor');
-    }
+
 });
 
 Route::group(['middleware' => ['admin'], 'prefix'=>'admin'], function (){
@@ -85,7 +81,10 @@ Route::group(['middleware' => ['admin'], 'prefix'=>'admin'], function (){
 
 
     Route::get('patients/list', 'AdminController@patientList');
-    Route::get('category', 'AdminController@category');
+    Route::get('category', 'CategoryController@category');
+    Route::get('category/delete/{id}', 'CategoryController@delete');
+    Route::post('category/add', 'CategoryController@storeCategory');
+
 });
 
 Auth::routes();

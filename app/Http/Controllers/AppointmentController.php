@@ -18,4 +18,8 @@ class AppointmentController extends Controller
         $user = auth()->user();
         return view('users.myappointment-info',compact('user'));
     }
+
+    protected function makeAppointment(){
+        $user = auth()->user();
+    }
 }

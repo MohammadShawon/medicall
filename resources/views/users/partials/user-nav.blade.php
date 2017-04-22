@@ -150,8 +150,9 @@
                     <li class="eborder-top">
                         <a href="/profile"><i class="icon_profile"></i> My Profile</a>
                     </li>
+                    @if(auth()->user()->isDoctor())
                     <li>
-                        <a href="/appointment"><i class="icon_clock_alt"></i> My Appointment</a>
+                        <a href="/appointment/list"><i class="icon_clock_alt"></i> My Appointment</a>
                     </li>
                     <li>
                         <a href="#"><i class="icon_mail_alt"></i> Messages</a>
@@ -159,6 +160,16 @@
                     <li>
                         <a href="#"><i class="icon_chat_alt"></i> Answers</a>
                     </li>
+                    @endif
+                    @if(auth()->user()->isUser())
+
+                        <li>
+                            <a href="/appointment"><i class="icon_clock_alt"></i> Make Appointment</a>
+                        </li>
+                    <li>
+                        <a href="#"><i class="icon_chat_alt"></i> Questions</a>
+                    </li>
+                    @endif
                     <li class="nav-item">
                         <form action="/logout" method="post" id="logout">{{ csrf_field() }}</form>
                         <a class="" onclick="document.getElementById('logout').submit()"><i class="icon_key_alt"></i>Logout</a>
