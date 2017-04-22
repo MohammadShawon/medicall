@@ -6,7 +6,7 @@ return [
     ],
     'broadcast' => [
         'enable' => true,
-        'app_name' => 'Medicall-development',
+        'app_name' => 'medicall',
         'pusher' => [
             'app_id'        => env('PUSHER_APP_ID'),
             'app_key'       => env('PUSHER_APP_KEY'),

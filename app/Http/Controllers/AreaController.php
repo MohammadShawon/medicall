@@ -3,8 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\District;
+use App\User;
 use App\Division;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Validator;
 
 class AreaController extends Controller
 {
@@ -81,9 +84,10 @@ class AreaController extends Controller
 
 
     public function locations() {
+        $user = auth()->user();
         $divisions = Division::all();
         $districts = District::all();
-        return view('admin.location-list', compact('divisions'), compact('districts'));
+        return view('admin.location-list', compact('divisions'), compact('districts'),compact('user'));
     }
 
     public function getDistricts($division_id) {

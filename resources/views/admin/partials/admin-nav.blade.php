@@ -6,7 +6,7 @@
 
 
     <!--logo start-->
-    <a href="/Admin" class="logo">Medi <span class="lite">Call</span></a>
+    <a href="/admin" class="logo">Medi <span class="lite">Call</span></a>
     <!--logo end-->
 
     <div class="nav search-row" id="top_menu">
@@ -76,7 +76,7 @@
                             <span class="profile-ava">
                                 <img alt="" src="img/avatar1_small.jpg">
                             </span>
-                    <span class="username">Jenifer Smith</span>
+                    <span class="username">{{ $user->name }}</span>
                     <b class="caret"></b>
                 </a>
                 <ul class="dropdown-menu extended logout">

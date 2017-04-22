@@ -9,6 +9,7 @@ class AdminController extends Controller
 {
     protected function index() {
         $user = auth()->user();
+//        $test = User::where('status',6)->first();
         return view('admin.index',compact('user'));
     }
     protected function doctorList() {

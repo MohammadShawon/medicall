@@ -18,8 +18,9 @@ class DoctorController extends Controller
     }
 
     public function getNonVerified() {
+        $user = auth()->user();
         $users = User::where('status', 3)->get();
-        return view('admin.doctor-verify', compact('users'));
+        return view('admin.doctor-verify', compact('users'),compact('user'));
     }
     public function approve($id)
     {
