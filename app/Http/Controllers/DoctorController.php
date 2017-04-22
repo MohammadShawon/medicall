@@ -34,13 +34,16 @@ class DoctorController extends Controller
     public function decline($id)
     {
         $user = User::find($id);
-        $user->status = 3;
+        $user->status = 2;
         $user->save();
-        $doctor = $user->id;
-        $doctor->delete();
-        return response()->json([
+        $doctor = $user->doctor;
+        if($doctor != null ){
+            $doctor->delete();
+            return response()->json([
                 'message' => 'Declined'
             ]);
+        }
+
     }
 
     public function application() {

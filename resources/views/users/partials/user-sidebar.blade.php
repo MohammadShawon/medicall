@@ -38,11 +38,11 @@
                     <span>My Appointment</span>
                 </a>
             </li>
-            @if(auth()->user()->isUser())
+            @if(auth()->user()->isBDMODoctor())
             <li>
                 <a class="" href="/doctors/apply">
                     <i class="icon_genius"></i>
-                    <span>Apply as Doctor</span>
+                    <span>Verify BDMO</span>
                 </a>
             </li>
             @endif
