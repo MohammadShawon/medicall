@@ -13,7 +13,7 @@ class DoctorController extends Controller
 {
     public function doctorList() {
             $user = auth()->user();
-            $users = User::verifiedDoctors()->get();
+            $users = User::where('status', 4)->get();
             return view('admin.doctor-list',compact('user'), compact('users'));
     }
 
@@ -25,7 +25,7 @@ class DoctorController extends Controller
     public function approve($id)
     {
         $user = User::find($id);
-        $user->status = 3;
+        $user->status = 4;
         $user->save();
         return response()->json([
                 'message' => 'Approved'
@@ -34,9 +34,9 @@ class DoctorController extends Controller
     public function decline($id)
     {
         $user = User::find($id);
-        $user->status = 1;
+        $user->status = 3;
         $user->save();
-        $doctor = $user->doctor;
+        $doctor = $user->id;
         $doctor->delete();
         return response()->json([
                 'message' => 'Declined'
@@ -45,7 +45,7 @@ class DoctorController extends Controller
 
     public function application() {
         $user = auth()->user();
-        if($user->status==2) {
+        if($user->status==3) {
             Session::flash('message', 'You have already requested to be a doctor.');
             return redirect()->back();
         }
@@ -67,19 +67,12 @@ class DoctorController extends Controller
         $doctor->speciality = $request->speciality;
         $doctor->save();
         $user = auth()->user();
-        $user->status = 2;
+        $user->status = 3;
         $user->save();
         Session::flash('message', 'You application has been submitted.');
         return redirect('/');
     }
 
-    public function verifyDoctor($token) {
-        $user = User::where('mail_validation', $token)->first();
-        if(!$user) return response('Not found', 404);
-        $user->status = 3;
-        $user->save();
-        return redirect()->intended('/')->with('message', 'Your email account has been verified');
-    }
 
     public function get($id) {
 
