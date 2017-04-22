@@ -19,6 +19,7 @@
                     <li><a class="" href="form_validation.html">Form Validation</a></li>
                 </ul> -->
             </li>
+            @if(auth()->user()->isUser())
             <li class="sub-menu">
                 <a href="/appointment" class="">
                     <i class="icon_desktop"></i>
@@ -32,32 +33,40 @@
                 </ul>
                 -->
             </li>
+            @endif
+
+            @if(auth()->user()->isDoctor())
             <li>
-                <a class="" href="/appointment">
+                <a class="" href="/appointment/list">
                     <i class="icon_genius"></i>
                     <span>My Appointment</span>
                 </a>
             </li>
-            @if(auth()->user()->isBDMODoctor())
-            <li>
-                <a class="" href="/doctors/apply">
-                    <i class="icon_genius"></i>
-                    <span>Verify BDMO</span>
-                </a>
-            </li>
-            @endif
+
             <li>
                 <a class="" href="#">
                     <i class="icon_genius"></i>
                     <span>Prescription</span>
                 </a>
             </li>
+
             <li>
                 <a class="" href="/schedule">
                     <i class="icon_calendar"></i>
                     <span>Schedule</span>
                 </a>
             </li>
+            @endif
+
+            @if(auth()->user()->isBDMODoctor())
+                <li>
+                    <a class="" href="/doctors/apply">
+                        <i class="icon_genius"></i>
+                        <span>Verify BDMO</span>
+                    </a>
+                </li>
+            @endif
+            @if(auth()->user()->isUser())
             <li>
                 <a class="" href="#">
                     <i class="icon_piechart"></i>
@@ -66,6 +75,9 @@
                 </a>
 
             </li>
+            @endif
+
+            @if(auth()->user()->isDoctor())
             <li>
                 <a class="" href="#">
                     <i class="icon_piechart"></i>
@@ -74,6 +86,7 @@
                 </a>
 
             </li>
+            @endif
             <li>
                 <a class="" href="#">
                     <i class="icon_piechart"></i>

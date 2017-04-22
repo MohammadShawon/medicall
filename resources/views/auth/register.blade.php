@@ -67,7 +67,7 @@
                             <label for="Status" class="col-md-4 control-label">Are You?</label>
                             <div class="col-md-3">
                                 <label class="radio-inline">
-                                    <input name="status" id="input-gender-male" value="0" type="radio" checked />Civil
+                                    <input name="status" id="input-gender-male" value="0" type="radio" checked />Patient
                                 </label>
                             </div>
                             <div class="col-md-3">

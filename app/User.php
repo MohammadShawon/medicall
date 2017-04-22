@@ -67,7 +67,7 @@ class User extends Authenticatable
         $role = 'User';
         switch ($this->status){
             case 1:
-                $role = 'User';
+                $role = 'Patient';
                 break;
             case 2:
                 $role = 'Doctor (Mail Unverified)';
