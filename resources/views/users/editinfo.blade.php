@@ -2,8 +2,14 @@
     <section class="panel">
         <div class="panel-body bio-graph-info">
             <h1> Profile Info</h1>
-            <form class="form-horizontal" role="form" action="/profile" method="post">
+            <form class="form-horizontal" role="form" action="/profile" method="post" enctype="multipart/form-data">
                 {{ csrf_field() }}
+                <div class="form-group">
+                    <label class="col-lg-2 control-label">Profile Picture</label>
+                    <div class="col-lg-6">
+                        <input type="file" class="form-control" id="profile_picture" name="profile_picture">
+                    </div>
+                </div>
                 <div class="form-group">
                     <label class="col-lg-2 control-label">Name</label>
                     <div class="col-lg-6">

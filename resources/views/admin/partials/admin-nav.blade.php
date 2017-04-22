@@ -74,9 +74,9 @@
             <li class="dropdown">
                 <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                             <span class="profile-ava">
-                                <img alt="" src="img/avatar1_small.jpg">
+                                <img alt="" src="{{ auth()->user()->photo }}">
                             </span>
-                    <span class="username">Jenifer Smith</span>
+                    <span class="username">{{ auth()->user()->name }}</span>
                     <b class="caret"></b>
                 </a>
                 <ul class="dropdown-menu extended logout">

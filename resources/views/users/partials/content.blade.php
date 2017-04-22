@@ -18,7 +18,7 @@
                         <div class="col-lg-2 col-sm-2">
                             <h4> {{ $user->name }} </h4>
                             <div class="follow-ava">
-                                <img src="img/profile-widget-avatar.jpg" alt="">
+                                <img src="{{ auth()->user()->photo }}" alt="">
                             </div>
                             <h6>{{ $user->role }}</h6>
                         </div>
