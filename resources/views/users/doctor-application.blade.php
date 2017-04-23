@@ -36,6 +36,13 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
+                                    <label class="col-lg-2 control-label">Category</label>
+                                    <div class="col-lg-6">
+                                        <select name="category" id="category" class="form-control">
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
                                     <div class="col-lg-offset-2 col-lg-10">
                                         <button type="submit" class="btn btn-primary">Save</button>
                                     </div>
@@ -67,6 +74,15 @@
         $('#hospital').typeahead(null, {
             name: 'hospitals',
             source: hospitals
+        });
+
+        $.get("/categories").done(function (response) {
+            var $select = $("#category");
+            response.forEach(function (category) {
+                console.log(category);
+                var $option = "<option value='"+category.id+"'>"+category.category_name+"</option>";
+                $select.append($option);
+            });
         });
     </script>
 @endsection

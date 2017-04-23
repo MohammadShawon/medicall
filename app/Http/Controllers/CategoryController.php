@@ -32,7 +32,11 @@ class CategoryController extends Controller
             if($item) $item->delete();
             return redirect()->back();
         }
+        return redirect()->back()->with("message", "Not Found");
+    }
 
+    public function categories() {
+        return response()->json(Category::all(), 200);
     }
 
 }

@@ -3701,8 +3701,6 @@ div[data-role="editor-toolbar"] {
 
     font-weight: 300;
 
-    font-weight: 30px;
-
 }
 
 
@@ -9905,4 +9903,15 @@ span.customSelect.changed {
 
 .text-middle>span{
     text-align: center;
+}
+
+.twitter-typeahead {
+    width: 80%;
+}
+
+.active {
+    border: 3px solid #00d6b2;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
 }

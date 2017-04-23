@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Division;
 use App\Hospital;
+use function foo\func;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
@@ -46,5 +47,24 @@ class HospitalController extends Controller
                 'message' => 'Hospital added',
                 'hospital' => $hospital
             ]);
+    }
+
+    public function location($hospital, Request $request) {
+        $hospitals = Hospital::where("name", $hospital)->get();
+        if(!$hospitals->count()) {
+                return response()->json([
+                    "message" => "Not found"
+                ], 404);
+        }
+        $locations = $hospitals->map(function ($hospital){
+            $district = $hospital->district;
+            $division = $district->division;
+            return [
+                "district" => $district,
+                "division" => $division,
+                "hospital" => $hospital
+            ];
+        });
+        return response()->json($locations, 200);
     }
 }

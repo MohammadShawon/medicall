@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Hospital;
 use App\Schedule;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class ScheduleController extends Controller
 {
@@ -31,26 +32,39 @@ class ScheduleController extends Controller
     {
         $validator = Validator::make(
             $request->all(), [
-                'hospitals' => 'required',
-                'day'     => 'required',
-                'fromTime'  => 'required',
-                'toTime'  => 'required',
-                'limit'  => 'required'
+                'hospital' => 'required',
+                'day'      => 'required',
+                'fromTime' => 'required',
+                'toTime'   => 'required',
+                'limit'    => 'required'
             ]
         );
         if ($validator->fails()) {
-            return response()->json($validator->errors(), 422);
+            if ($request->wantsJson())
+                return response()->json($validator->errors(), 422);
+            else
+                return redirect()->back()->withErrors($validator->errors())->withInput();
         }
         $schedule = new Schedule();
+        $schedule->doctor_id = auth()->user()->id;
         $schedule->hospital_id = Hospital::where('name', $request->hospital)->first()->id;
+        $schedule->room_no = $request->room_no;
         $schedule->day = $request->day;
         $schedule->time_from = $request->fromTime;
         $schedule->time_to = $request->toTime;
-        $schedule->limit = $request->limit;
+        $schedule->max_limit = $request->limit;
         $schedule->save();
-        return response()->json([
-            'message' => 'Schedule added',
-            'schedule' => $schedule
-        ]);
+        if ($request->wantsJson())
+            return response()->json([
+                'message'  => 'Schedule added',
+                'schedule' => $schedule
+            ]);
+
+        return redirect()->back()->with("message", "Schedule added");
+    }
+
+    public function getSchedule($doctor_id, $hospital_id) {
+        $schedule = Schedule::where("doctor_id", $doctor_id)->where("hospital_id", $hospital_id)->get();
+        return response()->json($schedule, 200);
     }
 }

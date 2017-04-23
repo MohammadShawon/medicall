@@ -36,7 +36,7 @@ class Doctor
                         $msg->add('message', $message);
                         return redirect()->back()->withErrors($msg);
                     }
-                    if(auth()->user()->isVerifyDoctor())
+                    if(auth()->user()->isBDMODoctor())
                     {
                         $message = 'Your doctor request is pending for approval.';
                         $msg->add('message', $message);

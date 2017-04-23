@@ -24,35 +24,23 @@
                                     <th><i class="icon_mobile"></i> Mobile</th>
                                     <th><i class="icon_cogs"></i> Action</th>
                                 </tr>
-                                <tr>
-                                    <td>1710322987</td>
-                                    <td>Mr.PAtient</td>
-                                    <td>2004-07-06</td>
-                                    <td>5.00pm</td>
-                                    <td>01670032464</td>
-                                    <td>
-                                        <div class="btn-group">
-                                            {{--<a class="btn btn-primary" href="#"><i class="icon_plus_alt2"></i></a>--}}
-                                            <a class="btn btn-success" href="#"><i class="icon_check_alt2"></i></a>
-                                            <a class="btn btn-danger" href="#"><i class="icon_close_alt2"></i></a>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>1320301612</td>
-                                    <td>Mr.Patient</td>
-                                    <td>2011-01-10</td>
-                                    <td>4.00pm</td>
-                                    <td>01716533428</td>
-                                    <td>
-                                        <div class="btn-group">
-                                            {{--<a class="btn btn-primary" href="#"><i class="icon_plus_alt2"></i></a>--}}
-                                            <a class="btn btn-success" href="#"><i class="icon_check_alt2"></i></a>
-                                            <a class="btn btn-danger" href="#"><i class="icon_close_alt2"></i></a>
-                                        </div>
-                                    </td>
-                                </tr>
-
+                                @foreach($appointments as $appointment)
+                                    {{--{{ dd($appointment->user->name) }}--}}
+                                    <tr>
+                                        <td>{{ $appointment->id }}</td>
+                                        <td>{{ $appointment->user->name }}</td>
+                                        <td>{{ $appointment->schedule_date }}</td>
+                                        <td>{{ $appointment->schedule->time_from }}</td>
+                                        <td>{{ $appointment->user->phone }}</td>
+                                        <td>
+                                            <div class="btn-group">
+                                                {{--<a class="btn btn-primary" href="#"><i class="icon_plus_alt2"></i></a>--}}
+                                                <a class="btn btn-success" href="#"><i class="icon_check_alt2"></i></a>
+                                                <a class="btn btn-danger" href="#"><i class="icon_close_alt2"></i></a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                @endforeach
                                 </tbody>
                             </table>
                         </section>

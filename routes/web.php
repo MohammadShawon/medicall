@@ -25,14 +25,21 @@ Route::group(['middleware'=>['user']], function (){
 
     Route::get('hospitals/typeahead/q={query}', 'HospitalController@typeAhead');
 
+    Route::get("hospitals/{hospital}/location", "HospitalController@location");
 
+
+    Route::get("categories", "CategoryController@categories");
+
+    Route::get("doctors/find/hospital/{hospital}/category/{category}", "DoctorController@search");
+
+    Route::get("schedule/doctor/{doctor_id}/hospital/{hospital_id}", "ScheduleController@getSchedule");
 
 
     /**
      * Appointment
      */
     Route::get('appointment', 'AppointmentController@index');
-    Route::get('appointment/make', 'AppointmentController@makeAppointment');
+    Route::post('appointment/make', 'AppointmentController@makeAppointment');
     Route::get('appointment/list', 'AppointmentController@myAppointment');
     Route::get('appointment/{id}/info', 'AppointmentController@appointmentInfo');
 });
@@ -42,6 +49,8 @@ Route::group(['middleware' => ['doctor']], function(){
      * Schedules
      */
     Route::get('schedule', 'ScheduleController@schedule');
+    Route::post('schedule', 'ScheduleController@store');
+
     Route::get('schedule/list', 'ScheduleController@scheduleList');
 
 

@@ -18,11 +18,11 @@ class CreateAppointmentsTable extends Migration
             $table->integer('doctor_id');
             $table->integer('user_id');
             $table->integer('hospital_id');
-            $table->integer('category_id');
+            $table->integer('schedule_id');
+            $table->date("schedule_date");
             $table->string('issue');
             $table->integer('prescription_id')->nullable();
             $table->boolean('resolved')->default(0);
-            $table->dateTime('time');
             $table->timestamps();
         });
     }

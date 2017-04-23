@@ -15,10 +15,17 @@
                         <div class="panel-body">
                             <div class="form">
                                 <form class="form-validate form-horizontal" id="feedback_form" method="post" action="">
+                                    {{ csrf_field() }}
                                     <div class="form-group">
-                                        <label for="hospitals" class="control-label col-lg-2">Set Hospital/Chamber <span class="required">*</span></label>
+                                        <label for="hospitals" class="control-label col-lg-2">Hospital <span class="required">*</span></label>
                                         <div class="col-lg-10">
-                                            <input type="text" class="form-control" id="" name="hospitals" placeholder=" " >
+                                            <input type="text" class="form-control" id="hospital" name="hospital" placeholder=" " >
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="hospitals" class="control-label col-lg-2">Room No <span class="required">*</span></label>
+                                        <div class="col-lg-10">
+                                            <input type="text" class="form-control" id="room_no" name="room_no" placeholder=" " >
                                         </div>
                                     </div>
                                     <div class="form-group ">

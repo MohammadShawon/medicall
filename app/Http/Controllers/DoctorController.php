@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Doctor;
 use App\Hospital;
 use App\User;
+use App\UserCategory;
+use function foo\func;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Validator;
@@ -58,7 +60,8 @@ class DoctorController extends Controller
         $validator = Validator::make($request->all(), [
             'hospital' => 'required',
             'bdmo_no' => 'required|unique:doctors',
-            'speciality' => 'required'
+            'speciality' => 'required',
+            "category" => "required"
         ]);
         if($validator->fails()) {
             return redirect()->back()->withErrors($validator->errors())->withInput();
@@ -72,6 +75,12 @@ class DoctorController extends Controller
         $user = auth()->user();
         $user->status = 3;
         $user->save();
+
+        $doctor_category = new UserCategory();
+        $doctor_category->user_id = auth()->user()->id;
+        $doctor_category->category_id = $request->category;
+        $doctor_category->save();
+
         Session::flash('message', 'You application has been submitted.');
         return redirect('/');
     }
@@ -87,5 +96,13 @@ class DoctorController extends Controller
 
     public function delete($id) {
 
+    }
+
+    public function search($hospital_id, $category_id) {
+        $doctor = Doctor::where("hospital_id", $hospital_id)
+            ->join("user_categories", "doctors.user_id", "=", "user_categories.user_id")
+            ->where("user_categories.category_id", $category_id)
+            ->with(['user', 'hospital'])->get();
+        return response()->json($doctor, 200);
     }
 }
