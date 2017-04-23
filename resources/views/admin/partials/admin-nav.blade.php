@@ -6,7 +6,7 @@
 
 
     <!--logo start-->
-    <a href="/admin" class="logo">Medi <span class="lite">Call</span></a>
+    <a href="/" class="logo">Medi <span class="lite">Call</span></a>
     <!--logo end-->
 
     <div class="nav search-row" id="top_menu">

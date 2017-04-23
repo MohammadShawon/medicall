@@ -25,7 +25,10 @@ Route::group(['middleware'=>['user']], function (){
 
     Route::get('hospitals/typeahead/q={query}', 'HospitalController@typeAhead');
 
-
+    /**
+     * Messages
+     */
+        Route::get('/messages','MessageController@messages');
 
 
     /**
