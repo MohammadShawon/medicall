@@ -74,7 +74,7 @@
             <li class="dropdown">
                 <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                             <span class="profile-ava">
-                                <img alt="" width="25" height="25" src="{{ auth()->user()->photo }}">
+                                <img alt="" width="35" height="35" src="{{ auth()->user()->photo }}">
                             </span>
                     <span class="username">{{ auth()->user()->name }}</span>
                     <b class="caret"></b>
