@@ -94,7 +94,7 @@
             </li>
             @endif
             <li>
-                <a class="" href="#">
+                <a class="" href="/messages">
                     <i class="icon_piechart"></i>
                     <span>Messages</span>
 

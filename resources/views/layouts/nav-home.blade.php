@@ -37,18 +37,26 @@
               </a>
               <ul class="dropdown-menu extended logout">
                 <div class="log-arrow-up"></div>
-                <li class="eborder-top">
-                  <a href="/profile"><i class="icon_profile"></i> My Profile</a>
-                </li>
-                <li>
-                  <a href="/appointment"><i class="icon_clock_alt"></i> My Appointment</a>
-                </li>
-                <li>
-                  <a href="#"><i class="icon_mail_alt"></i> Messages</a>
-                </li>
-                <li>
-                  <a href="#"><i class="icon_chat_alt"></i> Answers</a>
-                </li>
+                @if(auth()->user()->isUser() || auth()->user()->isDoctor() || auth()->user()->isBDMODoctor() || auth()->user()->isPendingUser() || auth()->user()->isPendingDoctor())
+                      <li class="eborder-top">
+                      <a href="/profile"><i class="icon_profile"></i> My Profile</a>
+                    </li>
+                      <li>
+                          <a href="/appointment"><i class="icon_clock_alt"></i> My Appointment</a>
+                      </li>
+                      <li>
+                          <a href="#"><i class="icon_mail_alt"></i> Messages</a>
+                      </li>
+                      <li>
+                          <a href="#"><i class="icon_chat_alt"></i> Answers</a>
+                      </li>
+                  @endif
+                  @if(auth()->user()->isAdmin())
+                    <li class="eborder-top">
+                      <a href="/admin"><i class="icon_profile"></i> Dashboard</a>
+                    </li>
+                  @endif
+
                 <li class="nav-item">
 
                   <form action="/logout" method="post" id="logout">{{ csrf_field() }} </form>

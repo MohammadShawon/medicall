@@ -3,7 +3,7 @@
 Route::post('api-login', 'UserController@apiLogin');
 Route::get('/', 'ViewsController@index');
 
-Route::group(['middleware'=>['user']], function (){
+Route::group(['middleware'=>['user']], function () {
 
     /**
      * Verify Mail
@@ -27,6 +27,10 @@ Route::group(['middleware'=>['user']], function (){
 
     Route::get("hospitals/{hospital}/location", "HospitalController@location");
 
+    /**
+     * Messages
+     */
+    Route::get('/messages', 'MessageController@messages');
 
     Route::get("categories", "CategoryController@categories");
 
