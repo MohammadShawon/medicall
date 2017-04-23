@@ -37,10 +37,10 @@
                     category: delcategory.val(),
                     _token: window._token
                 }).done(function (success) {
-                    swal('SUCCESS!', 'New Category Added', 'success');
+                    swal('SUCCESS!', ' Category Deleted', 'success');
                     delcategory.val('');
                 }).fail(function (error) {
-                    swal('ERROR!', 'Error adding new Category', 'error');
+                    swal('ERROR!', 'Error Deleting  Category', 'error');
                 })
             };
 

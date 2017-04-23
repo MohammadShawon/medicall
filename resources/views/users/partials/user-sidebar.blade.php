@@ -56,6 +56,12 @@
                     <span>Schedule</span>
                 </a>
             </li>
+                <li>
+                <a class="" href="/schedule/list">
+                    <i class="icon_calendar"></i>
+                    <span>My Schedule</span>
+                </a>
+            </li>
             @endif
 
             @if(auth()->user()->isBDMODoctor())

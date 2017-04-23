@@ -16,19 +16,16 @@ Route::group(['middleware'=>['user']], function (){
     Route::get('profile', 'UserController@get');
     Route::post('profile', 'UserController@update');
 
-
     /**
      * Doctor routes [application]
      */
     Route::get('doctors/apply', 'DoctorController@application');
     Route::post('doctors/apply', 'DoctorController@store');
 
+
     Route::get('hospitals/typeahead/q={query}', 'HospitalController@typeAhead');
 
-    /**
-     * Schedules
-     */
-    Route::get('schedule', 'ScheduleController@schedule');
+
 
 
     /**
@@ -41,6 +38,13 @@ Route::group(['middleware'=>['user']], function (){
 });
 
 Route::group(['middleware' => ['doctor']], function(){
+    /**
+     * Schedules
+     */
+    Route::get('schedule', 'ScheduleController@schedule');
+    Route::get('schedule/list', 'ScheduleController@scheduleList');
+
+
 
 });
 
