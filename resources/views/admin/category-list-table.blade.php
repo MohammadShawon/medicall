@@ -29,7 +29,7 @@
                                     {{--<a class="btn btn-primary" href="#"><i class="icon_plus_alt2"></i></a>--}}
                                     <a class="btn btn-primary" data-toggle="modal" data-target="#modal_update_category"><i class="icon_pencil-edit"></i></a>
                                     {{--<a class="btn btn-success" href="#"><i class="icon_check_alt2"></i></a>--}}
-                                    <a class="btn btn-danger" id="delcategory" onclick="deleteCategory()"><i class="icon_close_alt2"></i></a>
+                                    <a class="btn btn-danger" id="delcategory" onclick="deleteCategory({{ $category->id }})"><i class="icon_close_alt2"></i></a>
                                 </div>
                             </td>
                         </tr>
