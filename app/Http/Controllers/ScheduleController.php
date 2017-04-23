@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Hospital;
+use App\Schedule;
 use Illuminate\Http\Request;
 
 class ScheduleController extends Controller
@@ -30,23 +31,26 @@ class ScheduleController extends Controller
     {
         $validator = Validator::make(
             $request->all(), [
-                'district' => 'required',
-                'division'     => 'required',
-                'hospital'  => 'required'
+                'hospitals' => 'required',
+                'day'     => 'required',
+                'fromTime'  => 'required',
+                'toTime'  => 'required',
+                'limit'  => 'required'
             ]
         );
         if ($validator->fails()) {
             return response()->json($validator->errors(), 422);
         }
-        $hospital = new Hospital();
-        $hospital->name = $request->hospital;
-        $hospital->slug = str_slug($request->hospital);
-        $hospital->district_id = $request->district;
-        $hospital->division_id = $request->division;
-        $hospital->save();
+        $schedule = new Schedule();
+        $schedule->hospital_id = Hospital::where('name', $request->hospital)->first()->id;
+        $schedule->day = $request->day;
+        $schedule->time_from = $request->fromTime;
+        $schedule->time_to = $request->toTime;
+        $schedule->limit = $request->limit;
+        $schedule->save();
         return response()->json([
-            'message' => 'Hospital added',
-            'hospital' => $hospital
+            'message' => 'Schedule added',
+            'schedule' => $schedule
         ]);
     }
 }

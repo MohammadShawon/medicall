@@ -17,10 +17,12 @@ class CreateSchedulesTable extends Migration
             $table->increments('id');
             $table->integer('doctor_id');
             $table->integer('hospital_id');
-            $table->integer('chamber_id');
-            $table->string('chamber_name');
+            $table->integer('room_no');
+//            $table->integer('chamber_id');
+//            $table->string('chamber_name');
             $table->dateTime('time_from');
             $table->dateTime('time_to');
+            $table->integer('limit');
             $table->timestamps();
         });
     }

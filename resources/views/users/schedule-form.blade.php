@@ -39,11 +39,11 @@
                                     <div class="form-group ">
                                         <label for="cemail" class="control-label col-lg-2">Set Time<span class="required">*</span></label>
                                         <div class="col-lg-4">
-                                            <input class="form-control " id="" type="time" name="time" required />
+                                            <input class="form-control " id="" type="time" name="fromTime" required />
                                         </div>
                                         <div class="col-lg-2 text-center"><span>To</span></div>
                                         <div class="col-lg-4">
-                                            <input class="form-control " id="" type="time" name="time" required />
+                                            <input class="form-control " id="" type="time" name="toTime" required />
                                         </div>
                                     </div>
                                     <div class="form-group ">
