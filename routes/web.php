@@ -86,7 +86,7 @@ Route::group(['middleware' => ['admin'], 'prefix'=>'admin'], function (){
 
     Route::get('patients/list', 'AdminController@patientList');
     Route::get('category', 'CategoryController@category');
-    Route::get('category/delete/{id}', 'CategoryController@delete');
+    Route::post('category/delete/{id}', 'CategoryController@delete');
     Route::post('category/add', 'CategoryController@storeCategory');
 
 });

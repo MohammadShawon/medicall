@@ -32,9 +32,10 @@
                 })
             };
             window.deleteCategory = function(id) {
-                $.get('/admin/category/delete/'+id)
+                if(!confirm("Are you sure?")) return;
+                $.post('/admin/category/delete/'+id, {_token: _token})
                     .done(function (success) {
-                    swal('SUCCESS!', 'New Category Added', 'success');
+                    swal('SUCCESS!', ' Category Deleted', 'success');
                 }).fail(function (error) {
                     swal('ERROR!', 'Error Deleting  Category', 'error');
                 })
