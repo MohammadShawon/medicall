@@ -1,27 +1,15 @@
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:700,600,800,400);
 @import url(http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css);
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-html,
-body {
-  height: 100vh;
-}
+
 body {
   overflow: hidden;
   font-family: 'Open Sans', sans-serif;
-  background-image: -webkit-linear-gradient(top right, rgba(255, 255, 255, 0.6), transparent 60%, rgba(0, 0, 0, 0.6)), -webkit-linear-gradient(bottom right, #a0d3e4, #97d1e7);
-  background-image: linear-gradient(to bottom left, rgba(255, 255, 255, 0.6), transparent 60%, rgba(0, 0, 0, 0.6)), linear-gradient(to top left, #a0d3e4, #97d1e7);
+
 }
 .ui {
   margin: 10px auto;
-  width: 745px;
   height: 555px;
-  background-color: #fff;
   border-radius: 3px;
-  box-shadow: 0 0 25px #3a9fc4;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
   -ms-flex-direction: row;
@@ -30,6 +18,7 @@ body {
   display: -ms-flexbox;
   display: flex;
   overflow: hidden;
+    position: fixed;
 }
 .ui .chat-search input {
   outline: none;
@@ -52,7 +41,7 @@ body {
   padding: 10px;
   width: 90%;
   box-sizing: border-box;
-  margin: 15px 10px;
+  margin: 15px 30px;
   color: #fff;
 }
 .ui .left-menu {
@@ -61,6 +50,7 @@ body {
   padding-right: 1%;
   height: 100%;
   background: #434753;
+  margin-left: 0px;
 }
 .ui .chat {
   width: 70%;
