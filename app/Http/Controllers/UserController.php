@@ -2,18 +2,21 @@
 
 namespace App\Http\Controllers;
 
+
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\MessageBag;
+use App\Post;
 
 class UserController extends Controller
 {
     protected function index() {
         $user = auth()->user();
         if ($user){
-            return view('users.profile',compact('user'));
+            $posts = Post::where('user_id',$user->id);
+            return view('users.profile',compact('posts'),compact('user'));
         }
         else{
             return view('auth.register');

@@ -16,12 +16,21 @@ Route::group(['middleware'=>['user']], function () {
     Route::get('profile', 'UserController@get');
     Route::post('profile', 'UserController@update');
 
-    /**
-     * Doctor routes [application]
-     */
-    Route::get('doctors/apply', 'DoctorController@application');
-    Route::post('doctors/apply', 'DoctorController@store');
 
+    /**
+     *  Ask Your Question
+     */
+        Route::get('ask','PostController@index');
+        Route::post('ask','PostController@store');
+        Route::get('ask/question','PostController@show');
+        Route::get('ask/allquestion','PostController@showAll');
+
+      //  Route::get('ask/{id}','PostController@show');
+
+
+    /**
+     *  Hospital & Location
+     */
 
     Route::get('hospitals/typeahead/q={query}', 'HospitalController@typeAhead');
 
@@ -53,6 +62,12 @@ Route::group(['middleware' => ['doctor']], function(){
     Route::post('schedule', 'ScheduleController@store');
 
     Route::get('schedule/list', 'ScheduleController@scheduleList');
+
+    /**
+     * Doctor routes [application]
+     */
+    Route::get('doctors/apply', 'DoctorController@application');
+    Route::post('doctors/apply', 'DoctorController@store');
 
 
 
