@@ -27,10 +27,7 @@ Route::group(['middleware'=>['user']], function () {
 
     Route::get("hospitals/{hospital}/location", "HospitalController@location");
 
-    /**
-     * Messages
-     */
-    Route::get('/messages', 'MessageController@messages');
+
 
     Route::get("categories", "CategoryController@categories");
 
@@ -107,6 +104,11 @@ Route::group(['middleware' => ['admin'], 'prefix'=>'admin'], function (){
 Auth::routes();
 
 Route::get('verify/{token}', 'UserController@verifyUser');
+/**
+ * Messages
+ */
+Route::get('/messages', 'MessageController@messages');
+Route::get('message/{id}', 'MessageController@chatHistory')->name('message.read');
 
 
 

@@ -93,12 +93,18 @@
 
             </li>
             @endif
-            <li>
-                <a class="" href="/messages">
+            <li class="sub-menu">
+                <a class="" href="javascript:;">
                     <i class="icon_piechart"></i>
                     <span>Messages</span>
-
+                    <span class="menu-arrow arrow_carrot-right"></span>
                 </a>
+                <ul class="sub">
+                    <li><a class="" href="/messages">All User</a></li>
+                    <li><a class="" href="#">New Message</a></li>
+                    <li><a class="" href="#"><span>All Messages</span></a></li>
+                    <li><a class="" href="#">Active</a></li>
+                </ul>
 
             </li>
 

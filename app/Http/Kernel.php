@@ -60,5 +60,6 @@ class Kernel extends HttpKernel
         'doctor' => \App\Http\Middleware\Doctor::class,
         'moderator' => \App\Http\Middleware\Moderator::class,
         'admin' => \App\Http\Middleware\Admin::class,
+        'talk'  =>  \Nahid\Talk\Middleware\TalkMiddleware::class,
     ];
 }
