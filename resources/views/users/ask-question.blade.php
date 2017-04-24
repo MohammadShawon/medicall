@@ -70,12 +70,7 @@
                             </div>
                         </div>
 
-                <div id="ask" class="panel panel-default">
-                    <div class="panel-body">
 
-                    </div>
-
-                </div>
 
 
         </section>
