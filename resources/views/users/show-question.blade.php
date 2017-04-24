@@ -38,10 +38,11 @@
                                                     <strong>
                                                         {{ $comment->created_at->diffForHumans() }} :
                                                     </strong>
-                                                    {{ $comment->body }}
+                                                    {{ $comment->body }}  <a href="#" onclick="decline({{ $comment['id'] }})" class="talkDeleteMessage"  title="Delete Comment"><i class="fa fa-close"></i></a>
                                                 </li>
                                                 @endforeach
                                         </ul>
+
                                     </div>
                                     <hr>
                                 </div>
@@ -60,3 +61,21 @@
 
     @include('users.partials.user-footer')
 @endsection
+
+
+@section('scripts')
+    <script>
+
+        function decline(id) {
+            if(!confirm("Are you sure?")) return;
+            $.post('/ask/'+id+'/decline', {_token: '{{ csrf_token() }}'})
+                .done(function (success) {
+                    swal('SUCCESS!', success.message, 'success');
+                })
+                .fail(function (error) {
+                    swal('ERROR!', 'Error Deleted Comments.', 'error');
+                });
+        }
+    </script>
+
+    @endsection

@@ -28,4 +28,16 @@ class CommentsController extends Controller
         return back();
     }
 
+    public function decline($id)
+    {
+        $comment = Comment::find($id);
+        if($comment != null ){
+            $comment->delete();
+            return response()->json([
+                'message' => 'Deleted'
+            ]);
+        }
+
+    }
+
 }

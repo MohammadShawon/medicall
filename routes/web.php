@@ -26,6 +26,8 @@ Route::group(['middleware'=>['user']], function () {
         Route::get('ask/allquestion','PostController@showAll');
         Route::get('ask/question/{id}','PostController@single');
         Route::post('ask/question/{id}/comments','CommentsController@addComment');
+    Route::post('ask/{id}/decline', 'CommentsController@decline');
+
 
       //  Route::get('ask/{id}','PostController@show');
 
