@@ -24,6 +24,8 @@ Route::group(['middleware'=>['user']], function () {
         Route::post('ask','PostController@store');
         Route::get('ask/question','PostController@show');
         Route::get('ask/allquestion','PostController@showAll');
+        Route::get('ask/question/{id}','PostController@single');
+        Route::post('ask/question/{id}/comments','CommentsController@addComment');
 
       //  Route::get('ask/{id}','PostController@show');
 
@@ -44,7 +46,11 @@ Route::group(['middleware'=>['user']], function () {
 
     Route::get("schedule/doctor/{doctor_id}/hospital/{hospital_id}", "ScheduleController@getSchedule");
 
-
+    /**
+     * Doctor routes [application]
+     */
+    Route::get('doctors/apply', 'DoctorController@application');
+    Route::post('doctors/apply', 'DoctorController@store');
     /**
      * Appointment
      */
@@ -63,11 +69,7 @@ Route::group(['middleware' => ['doctor']], function(){
 
     Route::get('schedule/list', 'ScheduleController@scheduleList');
 
-    /**
-     * Doctor routes [application]
-     */
-    Route::get('doctors/apply', 'DoctorController@application');
-    Route::post('doctors/apply', 'DoctorController@store');
+
 
 
 

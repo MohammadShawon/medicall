@@ -80,22 +80,27 @@
                     <span class="menu-arrow arrow_carrot-right"></span>
                 </a>
                 <ul class="sub">
-                    <li><a class="" href="/ask">Ask</a></li>
+                    <li><a class="" href="/ask">Tell</a></li>
                     <li><a class="" href="/ask/allquestion">All Question</a></li>
                     <li><a class="" href="/ask/question">My Question</a></li>
-                    <li><a class="" href="#"></a></li>
                 </ul>
 
             </li>
             @endif
 
             @if(auth()->user()->isDoctor())
-            <li>
-                <a class="" href="#">
+            <li class="sub-menu">
+                <a class="" href="javascript:;">
                     <i class="icon_piechart"></i>
                     <span> Answers</span>
-
+                    <span class="menu-arrow arrow_carrot-right"></span>
                 </a>
+                <ul class="sub">
+                    <li><a class="" href="/ask">Tell</a></li>
+                    <li><a class="" href="/ask/allquestion">All Question</a></li>
+                    <li><a class="" href="/ask/question">My Post</a></li>
+                </ul>
+
 
             </li>
             @endif

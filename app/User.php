@@ -135,7 +135,10 @@ class User extends Authenticatable
         return $this->hasOne(Doctor::class);
     }
 
-    public function posts(){
-        return $this->hasMany(Post::class,'user_id');
+    public function post(){
+        return $this->hasMany(Post::class);
+    }
+    public function comments(){
+        return $this->hasMany(Comment::class);
     }
 }

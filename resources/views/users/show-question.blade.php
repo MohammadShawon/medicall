@@ -11,8 +11,7 @@
             <div class="panel-body">
                 @foreach($posts as $post)
 
-                    <div class="profile-activity">
-                        <div class="act-time">
+                    <div class="panel-body">
                             <div class="activity-body act-in">
                                 <div class="text">
                                     {{--<a href="#" class="activity-img"><img class="avatar" src="img/chat-avatar.jpg" alt=""></a>--}}
@@ -24,16 +23,36 @@
                                         <p>{{$post->user->name }}</p>
                                     @endif
                                     <p class="attribution"><a href="#"></a> {{ $post->created_at->toTimeString() }}, {{ $post->created_at->toFormattedDateString() }}</p>
-                                    <h3>{{ $post->title }}</h3>
+                                    <a href="/ask/question/{{ $post->id }}">
+                                       <h2>
+                                           {{ $post->title }}
+                                       </h2>
+                                    </a>
                                     <p>{{ $post->body }}</p>
+                                    <hr>
+                                    <p>Comments:</p>
+                                    <div class="comments">
+                                        <ul class="list-group">
+                                            @foreach($post->comments as $comment)
+                                                <li class="">
+                                                    <strong>
+                                                        {{ $comment->created_at->diffForHumans() }} :
+                                                    </strong>
+                                                    {{ $comment->body }}
+                                                </li>
+                                                @endforeach
+                                        </ul>
+                                    </div>
+                                    <hr>
                                 </div>
-                            </div>
                         </div>
                     </div>
-                    {{ $posts->links() }}
-                    @endforeach
 
+                    @endforeach
+                    {{ $posts->links() }}
             </div>
+
+
 
         </section>
     </section>

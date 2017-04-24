@@ -27,6 +27,13 @@ class PostController extends Controller
         $posts = Post::paginate(10);
         return view('users.show-question',compact('user'),compact('posts'));
     }
+    public function single($id){
+        $users = auth()->user();
+        $user = User::where('status','<=',4);
+        $post = Post::find($id);
+        return view('users.single-question',compact('user'),compact('post'),compact('users'));
+    }
+
     public function store(Request $request){
         $validator = Validator::make($request->all(),[
             'title' => 'required|min:15',
