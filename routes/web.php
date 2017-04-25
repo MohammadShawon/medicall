@@ -20,16 +20,16 @@ Route::group(['middleware'=>['user']], function () {
     /**
      *  Ask Your Question
      */
-        Route::get('ask','PostController@index');
-        Route::post('ask','PostController@store');
-        Route::get('ask/question','PostController@show');
-        Route::get('ask/allquestion','PostController@showAll');
-        Route::get('ask/question/{id}','PostController@single');
-        Route::post('ask/question/{id}/comments','CommentsController@addComment');
+    Route::get('ask','PostController@index');
+    Route::post('ask','PostController@store');
+    Route::get('ask/question','PostController@show');
+    Route::get('ask/allquestion','PostController@showAll');
+    Route::get('ask/question/{id}','PostController@single');
+    Route::post('ask/question/{id}/comments','CommentsController@addComment');
     Route::post('ask/{id}/decline', 'CommentsController@decline');
 
 
-      //  Route::get('ask/{id}','PostController@show');
+    //  Route::get('ask/{id}','PostController@show');
 
 
     /**
@@ -60,6 +60,16 @@ Route::group(['middleware'=>['user']], function () {
     Route::post('appointment/make', 'AppointmentController@makeAppointment');
     Route::get('appointment/list', 'AppointmentController@myAppointment');
     Route::get('appointment/{id}/info', 'AppointmentController@appointmentInfo');
+
+    //Message
+    Route::get('messages', 'UserController@messages');
+    Route::get('message/{id}', 'MessageController@chatHistory')->name('message.read');
+
+    Route::group(['prefix'=>'ajax', 'as'=>'ajax::'], function() {
+        Route::post('message/send', 'MessageController@ajaxSendMessage')->name('message.new');
+        Route::delete('message/delete/{id}', 'MessageController@ajaxDeleteMessage')->name('message.delete');
+    });
+
 });
 
 Route::group(['middleware' => ['doctor']], function(){
@@ -132,13 +142,6 @@ Route::get('verify/{token}', 'UserController@verifyUser');
 //    Route::post('message/send', 'MessageController@ajaxSendMessage')->name('message.new');
 //    Route::delete('message/delete/{id}', 'MessageController@ajaxDeleteMessage')->name('message.delete');
 //});
-Route::get('/messages', 'UserController@messages');
-Route::get('message/{id}', 'MessageController@chatHistory')->name('message.read');
-
-Route::group(['prefix'=>'ajax', 'as'=>'ajax::'], function() {
-    Route::post('message/send', 'MessageController@ajaxSendMessage')->name('message.new');
-    Route::delete('message/delete/{id}', 'MessageController@ajaxDeleteMessage')->name('message.delete');
-});
 
 
 

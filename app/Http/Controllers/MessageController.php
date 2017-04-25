@@ -82,15 +82,10 @@ use Nahid\Talk\Facades\Talk;
 
 class MessageController extends Controller
 {
-    protected $authUser;
+//    protected $authUser;
 
     public function __construct()
     {
-        $this->middleware('auth');
-        if (isset(Auth::user()->id)) {
-            Talk::setAuthUserId(Auth::user()->id);
-        }
-
         View::composer('users.chat.peoplelist', function ($view) {
             $threads = Talk::threads();
             $view->with(compact('threads'));

@@ -4,7 +4,9 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\MessageBag;
+use Nahid\Talk\Facades\Talk;
 
 class User
 {
@@ -18,8 +20,10 @@ class User
     public function handle($request, Closure $next)
     {
         if(auth()->check()){
-            if(!auth()->user()->isPendingUser() && !auth()->user()->isPendingDoctor())
+            if(!auth()->user()->isPendingUser() && !auth()->user()->isPendingDoctor()) {
+                Talk::setAuthUserId(Auth::user()->id);
                 return $next($request);
+            }
             else
             if($request->ajax()){
                 return response()->json([
