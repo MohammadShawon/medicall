@@ -126,8 +126,20 @@ Route::get('verify/{token}', 'UserController@verifyUser');
 /**
  * Messages
  */
-Route::get('/messages', 'MessageController@messages');
+//Route::get('/messages', 'UserController@messages');
+//Route::get('message/{id}', 'MessageController@chatHistory')->name('message.read');
+//Route::group(['prefix'=>'ajax', 'as'=>'ajax::'], function() {
+//    Route::post('message/send', 'MessageController@ajaxSendMessage')->name('message.new');
+//    Route::delete('message/delete/{id}', 'MessageController@ajaxDeleteMessage')->name('message.delete');
+//});
+Route::get('/messages', 'UserController@messages');
 Route::get('message/{id}', 'MessageController@chatHistory')->name('message.read');
+
+Route::group(['prefix'=>'ajax', 'as'=>'ajax::'], function() {
+    Route::post('message/send', 'MessageController@ajaxSendMessage')->name('message.new');
+    Route::delete('message/delete/{id}', 'MessageController@ajaxDeleteMessage')->name('message.delete');
+});
+
 
 
 

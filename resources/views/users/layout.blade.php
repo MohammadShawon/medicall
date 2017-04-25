@@ -25,6 +25,15 @@
     <link rel="stylesheet" type="text/css" href="/css/sweetalert.css">
     <link rel="stylesheet" type="text/css" href="/css/chat-style.css">
 
+    {{-- Talk Css--}}
+    {{--<link rel="stylesheet" href="/css/reset.css">--}}
+
+    {{--<link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css'>--}}
+
+    {{--<link rel="stylesheet" href="/css/tchat-style.css">--}}
+
+    {{-- Talk Css End--}}
+
     <script src="/js/chatuijs"></script>
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 -->
@@ -48,6 +57,7 @@
 @yield('scripts')
 <script src="/js/sweetalert.min.js"></script>
 <script src="/js/jequery.nicescroll.js"></script>
+<script src="/js/talk.js"></script>
 
 
 <script>

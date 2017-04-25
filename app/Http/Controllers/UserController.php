@@ -151,4 +151,10 @@ class UserController extends Controller
             return redirect()->back()->withErrors($bag)->withInput();
         }
     }
+
+    public function messages(){
+
+        $users = User::where('status','<=',4)->paginate(10);
+        return view('users.message',compact('users'));
+    }
 }
