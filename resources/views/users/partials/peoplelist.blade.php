@@ -8,7 +8,7 @@
     {{--</div>--}}
     {{--</li>--}}
 
-   // {{ dd($threads) }}
+
 
     @foreach($threads as $inbox)
 

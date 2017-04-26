@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Doctor;
 use App\Hospital;
 use App\Schedule;
 use Illuminate\Http\Request;
@@ -15,8 +16,10 @@ class ScheduleController extends Controller
         return view('users.myschedule',compact('user'),compact('hospitals'));
     }
     protected function scheduleList(){
+        $user = auth()->user();
+        $schedules = Schedule::with('user','hospital');
         $hospitals = Hospital::all();
-        return view('users.schedule-list',compact('user'),compact('hospitals'));
+        return view('users.schedule-list',compact('user'),compact('hospitals'),compact('schedules'),compact('doctor'));
     }
 
     public function typeAhead($query) {

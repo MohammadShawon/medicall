@@ -20,7 +20,8 @@
 <body>
 <div class="header">
     <div class="container header-brand">
-        <a href="{{url('/profile')}}" class="brand">Medicall Chat</a>
+        <a href="{{url('/profile')}}" class="brand">Go Profile</a>
+
     </div>
 </div>
 <div class="container clearfix body">

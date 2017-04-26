@@ -16,6 +16,8 @@
                             <th><i class="icon_calendar"></i> Appointment Limit</th>
                             <th><i class="icon_cogs"></i> Action</th>
                         </tr>
+                        @foreach($user->schedule as $schedule)
+                            {{ dd($schedule->day) }}
                         <tr>
                             <td>1710322987</td>
                             <td>Mr.PAtient</td>
@@ -30,6 +32,7 @@
                                 </div>
                             </td>
                         </tr>
+                            @endforeach
 
                         </tbody>
                     </table>

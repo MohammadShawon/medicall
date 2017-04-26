@@ -19,6 +19,7 @@
                                     <th><i class="icon_pin_alt"></i> Hospitals</th>
                                     <th><i class="icon_cogs"></i> Action</th>
                                 </tr>
+
                                 <tr>
                                     <td>1710322987</td>
                                     <td>2004-07-06</td>

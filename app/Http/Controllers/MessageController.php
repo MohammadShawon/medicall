@@ -16,9 +16,6 @@ use Nahid\Talk\Facades\Talk;
 //     */
 //    public function __construct()
 //    {
-//        if (!empty(auth()->user()->id)) {
-//            Talk::setAuthUserId(auth()->user()->id);
-//        }
 //
 //        View::composer('users.partials.peoplelist', function($view) {
 //            $threads = Talk::threads();
@@ -32,11 +29,6 @@ use Nahid\Talk\Facades\Talk;
 //     */
 //    public function chatHistory($id)
 //    {
-//
-////        $threads = Talk::threads();
-//
-////            $this->middleware('auth');
-////            Talk::setAuthUserId(Auth::user()->id);
 //            $conversations = Talk::getMessagesByUserId($id);
 //            $user = '';
 //            $messages = [];
@@ -46,9 +38,8 @@ use Nahid\Talk\Facades\Talk;
 //                $user = $conversations->withUser;
 //                $messages = $conversations->messages;
 //            }
-//            $threads = Talk::threads();
 //
-//        return view('users.conversations',compact('threads'), compact('messages'),compact('user'));
+//        return view('users.conversations',compact('messages'),compact('user'));
 //    }
 //    public function ajaxSendMessage(Request $request)
 //    {
@@ -82,7 +73,7 @@ use Nahid\Talk\Facades\Talk;
 
 class MessageController extends Controller
 {
-//    protected $authUser;
+
 
     public function __construct()
     {

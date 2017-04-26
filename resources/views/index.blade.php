@@ -11,7 +11,7 @@
 
       <!-- START THE FEATURETTES -->
 
-      @include('layouts.features')
+      {{--@include('layouts.features')--}}
 
       <!-- /END THE FEATURETTES -->
 @endsection

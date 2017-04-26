@@ -98,7 +98,9 @@
 
         @endsection
 @section('scripts')
-
+    <script>
+        var __baselUrl = "{{url('/')}}"
+    </script>
 
     <script>
         var __baseUrl = "{{url('/')}}"

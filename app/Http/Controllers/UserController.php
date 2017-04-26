@@ -15,7 +15,7 @@ class UserController extends Controller
     protected function index() {
         $user = auth()->user();
         if ($user){
-            $posts = Post::where('user_id',$user->id);
+           // $posts = Post::where('user_id',$user->id);
             return view('users.profile',compact('posts'),compact('user'));
         }
         else{
@@ -26,6 +26,7 @@ class UserController extends Controller
     protected function appointment(){
         $user = auth()->user();
         if ($user){
+
             return view('users.appointment',compact('user'));
         }
         else{
