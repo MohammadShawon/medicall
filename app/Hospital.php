@@ -15,4 +15,7 @@ class Hospital extends Model
     public function schedules() {
         return $this->hasMany(Schedule::class);
     }
+    public function appointment(){
+        return $this->hasMany(Appointment::class);
+    }
 }

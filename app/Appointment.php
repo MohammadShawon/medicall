@@ -15,6 +15,9 @@ class Appointment extends Model
     public function prescription() {
         return $this->hasOne(Prescription::class);
     }
+    public function hospital(){
+        return $this->belongsTo(Hospital::class);
+    }
     public function schedule() {
         return $this->belongsTo(Schedule::class);
     }

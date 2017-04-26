@@ -26,8 +26,9 @@
                                 </tr>
                                 @foreach($appointments as $appointment)
                                     {{--{{ dd($appointment->user->name) }}--}}
+
                                     <tr>
-                                        <td>{{ $appointment->id }}</td>
+                                         <td><a href="/appointment/{{ $appointment->id }}/info">{{ $appointment->id }}</a></td>
                                         <td>{{ $appointment->user->name }}</td>
                                         <td>{{ $appointment->schedule_date }}</td>
                                         <td>{{ $appointment->schedule->time_from }}</td>
@@ -40,6 +41,7 @@
                                             </div>
                                         </td>
                                     </tr>
+
                                 @endforeach
                                 </tbody>
                             </table>

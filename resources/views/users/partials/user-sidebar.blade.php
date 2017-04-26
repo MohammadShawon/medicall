@@ -33,6 +33,20 @@
                 </ul>
                 -->
             </li>
+
+                <li class="sub-menu">
+                <a href="/appointment/list" class="">
+                    <i class="icon_desktop"></i>
+                    <span>My Appointment</span>
+                    <!-- <span class="menu-arrow arrow_carrot-right"></span> -->
+                </a>
+               <!-- <ul class="sub">
+                    <li><a class="" href="general.html">Components</a></li>
+                    <li><a class="" href="buttons.html">Buttons</a></li>
+                    <li><a class="" href="grids.html">Grids</a></li>
+                </ul>
+                -->
+            </li>
             @endif
 
             @if(auth()->user()->isDoctor())
@@ -119,62 +133,64 @@
 
             </li>
 
-            <li>
-                <a class="" href="#">
-                    <i class="icon_piechart"></i>
-                    <span>Notifications</span>
+            {{--<li>--}}
+                {{--<a class="" href="#">--}}
+                    {{--<i class="icon_piechart"></i>--}}
+                    {{--<span>Notifications</span>--}}
 
-                </a>
+                {{--</a>--}}
 
-            </li>
+            {{--</li>--}}
+
+            {{--<li class="sub-menu">--}}
+                {{--<a href="javascript:;" class="">--}}
+                    {{--<i class="icon_table"></i>--}}
+                    {{--<span>Credits</span>--}}
+                    {{--<span class="menu-arrow arrow_carrot-right"></span>--}}
+                {{--</a>--}}
+
+            {{--</li>--}}
+
+            {{--<li class="sub-menu">--}}
+                {{--<a href="javascript:;" class="">--}}
+                    {{--<i class="icon_documents_alt"></i>--}}
+                    {{--<span>Share</span>--}}
+                    {{--<span class="menu-arrow arrow_carrot-right"></span>--}}
+                {{--</a>--}}
+                {{--<ul class="sub">--}}
+                    {{--<li><a class="" href="#">Facebook</a></li>--}}
+                    {{--<li><a class="" href="#"><span>Google Plus</span></a></li>--}}
+                    {{--<li><a class="" href="#">Linked In</a></li>--}}
+                    {{--<li><a class="" href="#">Twitter</a></li>--}}
+                {{--</ul>--}}
+            {{--</li>--}}
+
+            {{--<li class="sub-menu">--}}
+            {{--<a href="javascript:;" class="">--}}
+                {{--<i class="icon_table"></i>--}}
+                {{--<span>About Us</span>--}}
+
+            {{--</a>--}}
+
+            {{--</li>--}}
+
+            {{--<li class="sub-menu">--}}
+            {{--<a href="javascript:;" class="">--}}
+                {{--<i class="icon_table"></i>--}}
+                {{--<span>Terms & Condition</span>--}}
+
+            {{--</a>--}}
+
+            {{--</li>--}}
 
             <li class="sub-menu">
-                <a href="javascript:;" class="">
-                    <i class="icon_table"></i>
-                    <span>Credits</span>
-                    <span class="menu-arrow arrow_carrot-right"></span>
-                </a>
+                <form action="/logout" method="post" id="logout">{{ csrf_field() }}</form>
+                <a class="" onclick="document.getElementById('logout').submit()"><i class="icon_key_alt"></i>Logout</a>
+            {{--<a href="javascript:;" class="">--}}
+                {{--<i class="icon_table"></i>--}}
+                {{--<span>Logout</span>--}}
 
-            </li>
-
-            <li class="sub-menu">
-                <a href="javascript:;" class="">
-                    <i class="icon_documents_alt"></i>
-                    <span>Share</span>
-                    <span class="menu-arrow arrow_carrot-right"></span>
-                </a>
-                <ul class="sub">
-                    <li><a class="" href="#">Facebook</a></li>
-                    <li><a class="" href="#"><span>Google Plus</span></a></li>
-                    <li><a class="" href="#">Linked In</a></li>
-                    <li><a class="" href="#">Twitter</a></li>
-                </ul>
-            </li>
-
-            <li class="sub-menu">
-            <a href="javascript:;" class="">
-                <i class="icon_table"></i>
-                <span>About Us</span>
-
-            </a>
-
-            </li>
-
-            <li class="sub-menu">
-            <a href="javascript:;" class="">
-                <i class="icon_table"></i>
-                <span>Terms & Condition</span>
-
-            </a>
-
-            </li>
-
-            <li class="sub-menu">
-            <a href="javascript:;" class="">
-                <i class="icon_table"></i>
-                <span>Logout</span>
-
-            </a>
+            {{--</a>--}}
 
             </li>
 

@@ -67,43 +67,46 @@
                             </h2>
                         </header>
                         <div class="appointment-info">
-                            <span>Appointment ID:</span> <p>123485958</p>
+                            <span>Appointment ID:</span> <p>{{ $appointments->id }}</p>
                         </div>
 
                         <div class="appointment-info">
-                            <span>Name:</span> <p>Md. Morshadun Nur</p>
+                            <span>Name:</span> <p>{{ $appointments->user->name }}</p>
                         </div>
 
                         <div class="appointment-info">
-                            <span>Phone:</span> <p>Md. Morshadun Nur</p>
+                            <span>Phone:</span> <p>{{ $appointments->user->phone }}</p>
                         </div>
 
                         <div class="appointment-info">
-                            <span>Problems:</span> <p>Md. Morshadun Nur</p>
+                            <span>Problems:</span> <p>{{ $appointments->issue }}</p>
                         </div>
 
                         <div class="appointment-info">
-                            <span>Appointment Date:</span> <p>Md. Morshadun Nur</p>
+                            <span>Appointment Date:</span> <p>{{ $appointments->schedule_date }}</p>
                         </div>
 
                         <div class="appointment-info">
-                            <span>Appointment Time:</span> <p>Md. Morshadun Nur</p>
+                            <span>Appointment Time:</span> <p>{{ $appointments->schedule->time_from }}</p>
+                        </div>
+                        <div class="appointment-info">
+                            <span>Appointment Time:</span> <p>{{ $appointments->schedule->day }}</p>
+                        </div>
+
+                        {{--<div class="appointment-info">--}}
+                            {{--<span>Age:</span> <p>{{ $appointments->user->age }}</p>--}}
+                        {{--</div>--}}
+
+                        <div class="appointment-info">
+                            <span>Address:</span> <p>{{ $appointments->user->address }}</p>
                         </div>
 
                         <div class="appointment-info">
-                            <span>Age:</span> <p>Md. Morshadun Nur</p>
+                            <span>Doctor's Name:</span> <p>{{ $appointments->doctor->name }}</p>
                         </div>
 
                         <div class="appointment-info">
-                            <span>Address:</span> <p>Md. Morshadun Nur</p>
-                        </div>
-
-                        <div class="appointment-info">
-                            <span>Doctor's Name:</span> <p>Md. Morshadun Nur</p>
-                        </div>
-
-                        <div class="appointment-info">
-                            <span>Hospitals/Chamber:</span> <p>Md. Morshadun Nur</p>
+                            <span>Hospitals/Chamber:</span> <p>{{ $appointments->hospital->name }}</p>
                         </div>
                     </div>
                 </div>

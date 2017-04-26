@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Appointment;
+use App\Hospital;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
@@ -17,9 +18,11 @@ class AppointmentController extends Controller
         $appointments = Appointment::where("user_id", $user->id)->get();
         return view('users.appointment-list', compact('user'), compact("appointments"));
     }
-    protected function appointmentInfo(){
+    protected function appointmentInfo($id){
         $user = auth()->user();
-        return view('users.myappointment-info',compact('user'));
+        $appointments = Appointment::find($id);
+        $hospital = Hospital::all();
+        return view('users.myappointment-info',compact('user'),compact('appointments'),compact('hospital'));
     }
 
     protected function makeAppointment(Request $request){

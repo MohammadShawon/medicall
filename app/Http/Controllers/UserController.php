@@ -16,7 +16,8 @@ class UserController extends Controller
         $user = auth()->user();
         if ($user){
            // $posts = Post::where('user_id',$user->id);
-            return view('users.profile',compact('posts'),compact('user'));
+            $appointments = Appointment::where("user_id", $user->id)->get();
+            return view('users.profile',compact('appointments'),compact('user'));
         }
         else{
             return view('auth.register');
