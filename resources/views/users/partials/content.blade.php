@@ -32,28 +32,28 @@
                                 <span><i class="icon_pin_alt"></i>{{ $user->city }}</span>
                             </h5>
                         </div>
-                        <div class="col-lg-3 col-sm-6 follow-info weather-category">
-                            <ul>
-                                <li class="active">
+                        {{--<div class="col-lg-3 col-sm-6 follow-info weather-category">--}}
+                            {{--<ul>--}}
+                                {{--<li class="active">--}}
 
-                                    <i class="fa fa-comments fa-2x"> </i><br>
+                                    {{--<i class="fa fa-comments fa-2x"> </i><br>--}}
 
-                                    Recent Posted question will be setted here.
-                                </li>
+                                    {{--Recent Posted question will be setted here.--}}
+                                {{--</li>--}}
 
-                            </ul>
-                        </div>
-                        <div class="col-lg-3 col-sm-6 follow-info weather-category">
-                            <ul>
-                                <li class="active">
+                            {{--</ul>--}}
+                        {{--</div>--}}
+                        {{--<div class="col-lg-3 col-sm-6 follow-info weather-category">--}}
+                            {{--<ul>--}}
+                                {{--<li class="active">--}}
 
-                                    <i class="fa fa-bell fa-2x"> </i><br>
+                                    {{--<i class="fa fa-bell fa-2x"> </i><br>--}}
 
-                                    If Any Appointment created then appointment time notification will show here.
-                                </li>
+                                    {{--If Any Appointment created then appointment time notification will show here.--}}
+                                {{--</li>--}}
 
-                            </ul>
-                        </div>
+                            {{--</ul>--}}
+                        {{--</div>--}}
                      <!--   <div class="col-lg-2 col-sm-6 follow-info weather-category">
                             <ul>
                                 <li class="active">

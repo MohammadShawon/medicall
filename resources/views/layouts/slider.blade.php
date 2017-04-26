@@ -11,7 +11,7 @@
             <div class="carousel-caption d-none d-md-block text-left">
             <h1>Get Appointment Samrter Way</h1>
               <p>Make your Doctor's appointment from anywhere.Find the hospital and select your doctor and book your time.</p>
-              <p><a class="btn btn-lg btn-primary" href="#" role="button">Book Appointment</a></p>
+              <p><a class="btn btn-lg btn-primary" href="/appointment" role="button">Book Appointment</a></p>
              
             </div>
           </div>
@@ -22,7 +22,7 @@
             <div class="carousel-caption d-none d-md-block">
               <h1>Consulting by Message</h1>
               <p>Register yourself and consulting with specialist doctor by chatting and getting prescription in your phone.</p>
-              <p><a class="btn btn-lg btn-primary" href="#" role="button">Join & Chat</a></p>
+              <p><a class="btn btn-lg btn-primary" href="/messages" role="button">Join & Chat</a></p>
             </div>
           </div>
         </div>
@@ -32,7 +32,7 @@
             <div class="carousel-caption d-none d-md-block text-right">
               <h1>Ask Your Health Problem</h1>
               <p>Share your problem and getting solve & suggestion from different specialist doctors.</p>
-              <p><a class="btn btn-lg btn-primary" href="#" role="button">
+              <p><a class="btn btn-lg btn-primary" href="/ask" role="button">
               Join Us today</a></p>
             </div>
           </div>

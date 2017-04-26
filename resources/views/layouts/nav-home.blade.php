@@ -11,21 +11,22 @@
           <li class="nav-item">
             <a class="nav-link" href="{{ 'appointment' }}">Appointment</a>
           </li>
+
           <li class="nav-item">
-            <a class="nav-link " href="#">Message</a>
+            <a class="nav-link " href="/messages">Message</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link " href="#">Blog</a>
+            <a class="nav-link " href="/ask">Blog</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link " href="/about">About</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link " href="/support">Support</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link " href="/faq">FAQ</a>
-          </li>
+          {{--<li class="nav-item">--}}
+            {{--<a class="nav-link " href="/about">About</a>--}}
+          {{--</li>--}}
+          {{--<li class="nav-item">--}}
+            {{--<a class="nav-link " href="/support">Support</a>--}}
+          {{--</li>--}}
+          {{--<li class="nav-item">--}}
+            {{--<a class="nav-link " href="/faq">FAQ</a>--}}
+          {{--</li>--}}
           @if(Auth::check())
             <li class="dropdown">
               <a data-toggle="dropdown" class="dropdown-toggle" href="#">
@@ -45,10 +46,10 @@
                           <a href="/appointment"><i class="icon_clock_alt"></i> My Appointment</a>
                       </li>
                       <li>
-                          <a href="#"><i class="icon_mail_alt"></i> Messages</a>
+                          <a href="/messages"><i class="icon_mail_alt"></i> Messages</a>
                       </li>
                       <li>
-                          <a href="#"><i class="icon_chat_alt"></i> Answers</a>
+                          <a href="/ask"><i class="icon_chat_alt"></i> Answers</a>
                       </li>
                   @endif
                   @if(auth()->user()->isAdmin())

@@ -19,12 +19,12 @@ class PostController extends Controller
     public function show(){
         $user = auth()->user();
 //        $posts = Post::paginate(10);
-        $posts = Post::where("user_id", $user->id)->paginate(10);
+        $posts = Post::where("user_id", $user->id)->orderBy('created_at', 'DESC')->paginate(10);
         return view('users.show-question',compact('user'),compact('posts'));
     }
     public function showAll(){
         $user = User::where('status','<=',4);
-        $posts = Post::paginate(10);
+        $posts = Post::orderBy('created_at', 'DESC')->paginate(10);
         return view('users.show-question',compact('user'),compact('posts'));
     }
     public function single($id){
@@ -36,8 +36,8 @@ class PostController extends Controller
 
     public function store(Request $request){
         $validator = Validator::make($request->all(),[
-            'title' => 'required|min:15',
-            'body' => 'required|min:100',
+            'title' => 'required|min:10',
+            'body' => 'required|min:30',
             'annonyms' => 'required'
         ]);
         if ($validator->fails()){
@@ -51,6 +51,6 @@ class PostController extends Controller
 
         $ask->save();
         Session::flash('message', 'You Question has been Posted.');
-        return redirect('/profile');
+        return redirect('/ask/allquestion');
     }
 }
