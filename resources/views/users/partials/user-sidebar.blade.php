@@ -51,7 +51,7 @@
 
             @if(auth()->user()->isDoctor())
             <li>
-                <a class="" href="/appointment/list">
+                <a class="" href="/appointment/patientlist">
                     <i class="icon_genius"></i>
                     <span>My Appointment</span>
                 </a>

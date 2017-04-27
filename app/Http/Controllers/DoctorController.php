@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Doctor;
 use App\Hospital;
 use App\User;
+use App\Appointment;
 use App\UserCategory;
 use function foo\func;
 use Illuminate\Http\Request;
@@ -46,6 +47,11 @@ class DoctorController extends Controller
             ]);
         }
 
+    }
+    protected function myAppointment(){
+        $user = auth()->user();
+        $appointments = Appointment::where("doctor_id", $user->id)->get();
+        return view('users.appointment-list-doctor', compact('user'), compact("appointments"));
     }
 
     public function application() {

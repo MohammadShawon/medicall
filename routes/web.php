@@ -81,6 +81,8 @@ Route::group(['middleware' => ['doctor']], function(){
 
     Route::get('schedule/list', 'ScheduleController@scheduleList');
 
+    Route::get('appointment/patientlist', 'DoctorController@myAppointment');
+
 
 
 
