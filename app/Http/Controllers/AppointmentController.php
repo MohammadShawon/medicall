@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Appointment;
 use App\Hospital;
+use App\Schedule;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Validator;
 
 class AppointmentController extends Controller
@@ -41,10 +43,21 @@ class AppointmentController extends Controller
                 return redirect()->back()->withErrors($validator->errors())->withInput();
             }
         }
+
         $appointment = new Appointment();
+
         $appointment->doctor_id = $request->doctor_id;
         $appointment->hospital_id = $request->hospital_id;
-        $appointment->schedule_id = $request->schedule_id;
+
+        $schedule = $request->schedule_id;
+        $s = Schedule::where('id',$schedule)->first();
+        $a = Appointment::where('schedule_id',$request->schedule_id)->count();
+        if ($a <= $s->max_limit){
+            $appointment->schedule_id = $request->schedule_id;
+        }
+        else{
+            return redirect("/appointment")->with("error", "Appointment Limit Exceeded");
+        }
         $appointment->schedule_date = $request->schedule_date;
         $appointment->issue = $request->issue;
         $appointment->user_id = auth()->user()->id;

@@ -17,9 +17,10 @@ class ScheduleController extends Controller
     }
     protected function scheduleList(){
         $user = auth()->user();
-        $schedules = Schedule::with('user','hospital');
-        $hospitals = Hospital::all();
-        return view('users.schedule-list',compact('user'),compact('hospitals'),compact('schedules'),compact('doctor'));
+        $schedules = Schedule::where("doctor_id", $user->id)->get();
+       // dd($schedules);
+//        $hospitals = Hospital::all();
+        return view('users.schedule-list',compact('schedules'),compact('users'));
     }
 
     public function typeAhead($query) {

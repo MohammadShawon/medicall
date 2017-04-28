@@ -87,6 +87,14 @@
             confirmButtonText: "OK"
         });
         @endif
+        @if(Session::has('error'))
+          swal({
+            title: "Error!",
+            text: "{{ str_replace("\"", "\\\"", Session::get('error')) }}",
+            type: "error",
+            confirmButtonText: "OK"
+        });
+        @endif
     });
 </script>
 </body>

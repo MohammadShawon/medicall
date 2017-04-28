@@ -16,14 +16,13 @@
                             <th><i class="icon_calendar"></i> Appointment Limit</th>
                             <th><i class="icon_cogs"></i> Action</th>
                         </tr>
-                        @foreach($user->schedule as $schedule)
-                            {{ dd($schedule->day) }}
+                        @foreach($schedules as $schedule)
                         <tr>
-                            <td>1710322987</td>
-                            <td>Mr.PAtient</td>
-                            <td>2004-07-06</td>
-                            <td>5.00pm</td>
-                            <td>5.00pm</td>
+                            <td>{{ $schedule->hospital->name }}</td>
+                            <td>{{ $schedule->day }}</td>
+                            <td>{{ $schedule->time_from }}</td>
+                            <td>{{ $schedule->time_to }}</td>
+                            <td>{{ $schedule->max_limit }}</td>
                             <td>
                                 <div class="btn-group">
                                     {{--<a class="btn btn-primary" href="#"><i class="icon_plus_alt2"></i></a>--}}

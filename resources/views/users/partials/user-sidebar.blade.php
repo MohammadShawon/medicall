@@ -57,12 +57,12 @@
                 </a>
             </li>
 
-            <li>
-                <a class="" href="#">
-                    <i class="icon_genius"></i>
-                    <span>Prescription</span>
-                </a>
-            </li>
+            {{--<li>--}}
+                {{--<a class="" href="#">--}}
+                    {{--<i class="icon_genius"></i>--}}
+                    {{--<span>Prescription</span>--}}
+                {{--</a>--}}
+            {{--</li>--}}
 
             <li>
                 <a class="" href="/schedule">
