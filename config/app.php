@@ -178,7 +178,7 @@ return [
         App\Providers\RouteServiceProvider::class,
         Barryvdh\Debugbar\ServiceProvider::class,
         Laravel\Passport\PassportServiceProvider::class,
-        Nahid\Talk\TalkServiceProvider::class,
+        // Nahid\Talk\TalkServiceProvider::class,
 
     ],
 
@@ -230,7 +230,7 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
 
         'Debugbar' => Barryvdh\Debugbar\Facade::class,
-        'Talk'      => Nahid\Talk\Facades\Talk::class,
+        // 'Talk'      => Nahid\Talk\Facades\Talk::class,
 
 
     ],
